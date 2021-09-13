@@ -7,11 +7,19 @@ import Home from "./pages/home/Home";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import getDesignTokens from "./utils/getDesigntokens";
+import { useSelector } from "react-redux";
+import { themeModeState$ } from "./redux/selectors";
+import { useDispatch } from "react-redux";
+import * as actions from "./redux/actions";
+import { switchDarkMode } from "./redux/actions";
 
 export function App() {
-	const theme = useTheme();
-	const colorMode = React.useContext(ColorModeContext);
-
+	const mode = useSelector(themeModeState$);
+	const dispatch = useDispatch();
+	const switchThemeMode = () => {
+		if (mode === "light") dispatch(actions.switchDarkMode());
+		else dispatch(actions.switchLightMode());
+	};
 	return (
 		<div>
 			<Box
@@ -26,17 +34,9 @@ export function App() {
 					p: 3,
 				}}
 			>
-				{theme.palette.mode} mode
-				<IconButton
-					sx={{ ml: 1 }}
-					onClick={colorMode.toggleColorMode}
-					color="inherit"
-				>
-					{theme.palette.mode === "dark" ? (
-						<Brightness7Icon />
-					) : (
-						<Brightness4Icon />
-					)}
+				{mode} mode
+				<IconButton sx={{ ml: 1 }} onClick={switchThemeMode} color="inherit">
+					{mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
 				</IconButton>
 			</Box>
 			<Router>
@@ -50,27 +50,14 @@ export function App() {
 	);
 }
 
-const ColorModeContext = React.createContext({ toggleColorMode: () => {} });
-
 export default function ToggleColorMode() {
-	const [mode, setMode] = React.useState("light");
-	const colorMode = React.useMemo(
-		() => ({
-			toggleColorMode: () => {
-				setMode((prevMode) => (prevMode === "light" ? "dark" : "light"));
-			},
-		}),
-		[]
-	);
+	const mode = useSelector(themeModeState$);
 
 	const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
-	console.log("🚀 ~ file: App.js ~ line 66 ~ ToggleColorMode ~ theme", theme);
 
 	return (
-		<ColorModeContext.Provider value={colorMode}>
-			<ThemeProvider theme={theme}>
-				<App />
-			</ThemeProvider>
-		</ColorModeContext.Provider>
+		<ThemeProvider theme={theme}>
+			<App />
+		</ThemeProvider>
 	);
 }
