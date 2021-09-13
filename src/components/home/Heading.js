@@ -10,10 +10,16 @@ export default function Heading() {
 				display: "flex",
 				justifyContent: "space-between",
 				alignItems: "center",
-				paddingBottom: "10px",
+				padding: "10px 0",
 			}}
 		>
-			<Typography variant="subtitle2" component="div">
+			<Typography
+				variant="subtitle2"
+				component="div"
+				sx={{
+					color: "text.primary",
+				}}
+			>
 				Blogging as a developer, done right!
 			</Typography>
 			<Box>

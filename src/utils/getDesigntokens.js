@@ -19,7 +19,7 @@ const getDesignTokens = (mode) => ({
 						primary: "#ffffff",
 				  }),
 		},
-		background: {
+		backgroundSecondary: {
 			...(mode === "light"
 				? {
 						paper: "#ffffff",
@@ -30,13 +30,20 @@ const getDesignTokens = (mode) => ({
 						default: "#232626",
 				  }),
 		},
-		backgroundSecondary: {
+		background: {
 			...(mode === "light"
 				? {
 						paper: "#f5f7fa",
 						default: "#f5f7fa",
 				  }
 				: { paper: "#18191a", default: "#18191a" }),
+		},
+		divider: {
+			...(mode === "light"
+				? {
+						main: "#e5e7eb",
+				  }
+				: { main: "#424242" }),
 		},
 	},
 });

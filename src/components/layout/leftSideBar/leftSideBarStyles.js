@@ -6,6 +6,9 @@ export default makeStyles((theme) => {
 		theme
 	);
 	return {
+		leftSideBar: {
+			padding: "10px 20px 10px 10px",
+		},
 		writeButton: {
 			height: "40px",
 			marginBottom: "10px",
