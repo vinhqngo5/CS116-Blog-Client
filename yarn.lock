@@ -1546,15 +1546,6 @@
     react-is "^17.0.2"
     react-transition-group "^4.4.0"
 
-"@mui/private-theming@5.0.0-rc.0":
-  version "5.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@mui/private-theming/-/private-theming-5.0.0-rc.0.tgz#a1a0875aa663d4883f7f890d6bbcab4f1d5458e7"
-  integrity sha512-odqQokcnVt7D2KA1ME5V1ESZPxtplHrF/C3bUMJCE8q98eKYOJMIzdB8Gu/alE2KUN+Osvk5IeN3odwlcrJ7Mg==
-  dependencies:
-    "@babel/runtime" "^7.14.8"
-    "@mui/utils" "5.0.0-rc.0"
-    prop-types "^15.7.2"
-
 "@mui/private-theming@5.0.0-rc.1":
   version "5.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@mui/private-theming/-/private-theming-5.0.0-rc.1.tgz#eab6d20db119b6f2176d76ed725f53b9ebc12e97"
@@ -1573,16 +1564,16 @@
     "@emotion/cache" "^11.4.0"
     prop-types "^15.7.2"
 
-"@mui/styles@^5.0.0-rc.0":
-  version "5.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@mui/styles/-/styles-5.0.0-rc.0.tgz#dd9990dec743868e929e6c3d00c6cece8c39578c"
-  integrity sha512-bmEeNV+PPhqF+cRLH/oAV4iJY76A1RJfZjB+MUTlRMY38z3+RBnGc8JPY0CoIarCz0YGZ1+DiZrUcUhrq6tcDg==
+"@mui/styles@5.0.0-rc.1":
+  version "5.0.0-rc.1"
+  resolved "https://registry.yarnpkg.com/@mui/styles/-/styles-5.0.0-rc.1.tgz#479c082afbdef116ad5323e15e3f1324efd29205"
+  integrity sha512-lOAEpHDTOv/mLGBXvu0zO+FJihezo3Z4PKggTEGIdEuZUvz2slyJOtlSGwvbURK7+dGT04jFBfMOHbPR1JODSw==
   dependencies:
     "@babel/runtime" "^7.14.8"
     "@emotion/hash" "^0.8.0"
-    "@mui/private-theming" "5.0.0-rc.0"
-    "@mui/types" "7.0.0-rc.0"
-    "@mui/utils" "5.0.0-rc.0"
+    "@mui/private-theming" "5.0.0-rc.1"
+    "@mui/types" "7.0.0-rc.1"
+    "@mui/utils" "5.0.0-rc.1"
     clsx "^1.1.1"
     csstype "^3.0.8"
     hoist-non-react-statics "^3.3.2"
@@ -1610,26 +1601,10 @@
     csstype "^3.0.8"
     prop-types "^15.7.2"
 
-"@mui/types@7.0.0-rc.0":
-  version "7.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@mui/types/-/types-7.0.0-rc.0.tgz#6bb04fd5542f78dfa036ae6b6b2ac781f2a52885"
-  integrity sha512-0IZaZZRQV5F96bMVQtjxLuedwrD0UZ2BR/O2DTP3vuxxHVm6gRywb02HuV3rRLJNMBGd5lkBgCDhiPvRCPYWKg==
-
 "@mui/types@7.0.0-rc.1":
   version "7.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/@mui/types/-/types-7.0.0-rc.1.tgz#276090e2cd062a5e9241cf8d4ad795a4ee10eb03"
   integrity sha512-4vYFVi8ExcC7EEuk5melw/XPG2DVPeXI/HUYnQj+3t5NESpdvLJhbbvmHH366ZWAhXR2FechYWo/cQfGIsSG8Q==
-
-"@mui/utils@5.0.0-rc.0":
-  version "5.0.0-rc.0"
-  resolved "https://registry.yarnpkg.com/@mui/utils/-/utils-5.0.0-rc.0.tgz#1f6858d55ed0139342c90c1483f520d4e07a893f"
-  integrity sha512-u65YLalK8Md3HIhCLgD1kPMDxO/XCkUixGyOf6Zb3esSSq7iasLspaBcP2Bt288giM8HB1xlFBfaqoqoT9a4SA==
-  dependencies:
-    "@babel/runtime" "^7.14.8"
-    "@types/prop-types" "^15.7.4"
-    "@types/react-is" "^16.7.1 || ^17.0.0"
-    prop-types "^15.7.2"
-    react-is "^17.0.2"
 
 "@mui/utils@5.0.0-rc.1":
   version "5.0.0-rc.1"

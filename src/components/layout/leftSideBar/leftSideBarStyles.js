@@ -14,7 +14,7 @@ export default makeStyles((theme) => {
 			height: "35px",
 			justifyContent: "flex-start",
 			textTransform: "none",
-			// color: theme.palette.text.primary,
+			color: theme.palette.text.primary,
 		},
 	};
 });
