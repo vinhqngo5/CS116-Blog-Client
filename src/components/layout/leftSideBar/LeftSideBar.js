@@ -30,7 +30,6 @@ export default function LeftSideBar() {
 				className={classes.textButton}
 				startIcon={<HomeOutlined />}
 				variant="text"
-				sx={{ color: "text.secondary" }}
 				fullWidth
 			>
 				My Feed
@@ -39,7 +38,6 @@ export default function LeftSideBar() {
 				className={classes.textButton}
 				startIcon={<FeedOutlined />}
 				variant="text"
-				sx={{ color: "text.secondary" }}
 				fullWidth
 			>
 				My Posts
@@ -48,7 +46,6 @@ export default function LeftSideBar() {
 				className={classes.textButton}
 				startIcon={<BookmarksOutlined />}
 				variant="text"
-				sx={{ color: "text.secondary" }}
 				fullWidth
 			>
 				Saved

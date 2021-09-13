@@ -1,4 +1,4 @@
-import { Container, Grid, Paper } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import React from "react";
 import LeftSideBar from "../../components/layout/leftSideBar/LeftSideBar";
 import RightSideBar from "../../components/layout/rightSideBar/RightSideBar";
