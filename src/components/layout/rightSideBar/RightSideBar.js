@@ -1,5 +1,6 @@
+import { Box } from "@mui/system";
 import React from "react";
 
 export default function RightSideBar() {
-	return <div>RightSideBar</div>;
+	return <Box>RightSideBar</Box>;
 }
