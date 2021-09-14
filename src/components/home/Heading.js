@@ -1,11 +1,15 @@
-import { Button, Paper, Typography } from "@mui/material";
+import { useTheme } from "@emotion/react";
+import { Button, Paper, Typography, useMediaQuery } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import withLogin from "../../hoc/withLogin";
+import ProfileItems from "../common/ProfileItems";
 
 export const LoginButton = withLogin(Button);
 
 export default function Heading() {
+	const theme = useTheme();
+	const matches = useMediaQuery(theme.breakpoints.up("md"));
 	return (
 		<Paper
 			variant="outlined"
@@ -44,25 +48,41 @@ export default function Heading() {
 					Recent articles from the community
 				</Typography>
 			</Box>
-			<Box>
-				<LoginButton
-					Component={Button}
+			{matches ? (
+				<Box>
+					<LoginButton
+						Component={Button}
+						sx={{
+							textTransform: "none",
+						}}
+						variant="outlined"
+						content="Login"
+					/>
+					<LoginButton
+						Component={Button}
+						variant="contained"
+						sx={{
+							marginLeft: "10px",
+							textTransform: "none",
+						}}
+						content="Create an account"
+					/>
+				</Box>
+			) : (
+				<ProfileItems
+					Component={Box}
 					sx={{
-						textTransform: "none",
+						display: "flex",
+						flexDirection: "row",
+						// width: "100%",
+						alignItems: "center",
+						justifyContent: "center",
+						// bgcolor: "background.default",
+						color: "text.primary",
+						borderRadius: 1,
 					}}
-					variant="outlined"
-					content="Login"
-				/>
-				<LoginButton
-					Component={Button}
-					variant="contained"
-					sx={{
-						marginLeft: "10px",
-						textTransform: "none",
-					}}
-					content="Create an account"
-				/>
-			</Box>
+				></ProfileItems>
+			)}
 		</Paper>
 	);
 }

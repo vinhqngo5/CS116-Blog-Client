@@ -181,6 +181,7 @@ export function BlogPost() {
 						xs={12}
 						style={{
 							height: "300px",
+							marginBottom: "10px",
 						}}
 						display={{
 							xs: "block",

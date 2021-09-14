@@ -10,22 +10,12 @@ import {
 } from "@mui/icons-material";
 import { Button, Avatar, Badge, Typography } from "@mui/material";
 import useStyles from "./leftSideBarStyles";
-import { useDispatch, useSelector } from "react-redux";
-import { themeModeState$ } from "../../../redux/selectors";
 import * as actions from "../../../redux/actions";
-import { IconButton } from "@mui/material";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
-import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
 
+import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import ProfileItems from "../../common/ProfileItems";
 export default function LeftSideBar() {
 	const classes = useStyles();
-	const mode = useSelector(themeModeState$);
-	const dispatch = useDispatch();
-	const switchThemeMode = () => {
-		if (mode === "light") dispatch(actions.switchDarkMode());
-		else dispatch(actions.switchLightMode());
-	};
 
 	return (
 		<Box className={classes.leftSideBar}>
@@ -117,7 +107,9 @@ export default function LeftSideBar() {
 			>
 				Saved
 			</Button>
-			<Box
+
+			<ProfileItems
+				Component={Box}
 				sx={{
 					position: "fixed",
 					bottom: "0px",
@@ -131,36 +123,7 @@ export default function LeftSideBar() {
 					borderRadius: 1,
 					p: 3,
 				}}
-			>
-				<IconButton sx={{}} onClick={switchThemeMode} color="inherit">
-					{mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
-				</IconButton>
-				<IconButton color="inherit">
-					<Badge badgeContent={4} color="error">
-						<NotificationsOutlined />
-					</Badge>
-				</IconButton>
-
-				<Avatar
-					sx={{
-						bgcolor: "primary.main",
-						margin: "20px",
-						width: "35px",
-						height: "35px",
-						borderWidth: "1.5px",
-						borderStyle: "solid",
-						borderColor: "divider.border",
-						cursor: "pointer",
-					}}
-				>
-					<Person
-						fontSize="medium"
-						sx={{
-							color: "#fff",
-						}}
-					/>
-				</Avatar>
-			</Box>
+			/>
 		</Box>
 	);
 }
