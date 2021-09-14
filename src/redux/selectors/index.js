@@ -1,1 +1,1 @@
-export const themeModeState$ = (state) => state.theme.themeMode;
+export const themeModeState$ = (state) => state.blogState.themeMode;

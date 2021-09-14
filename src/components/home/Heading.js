@@ -51,7 +51,7 @@ export default function Heading() {
 			{matches ? (
 				<Box>
 					<LoginButton
-						Component={Button}
+						component={Button}
 						sx={{
 							textTransform: "none",
 						}}
@@ -59,7 +59,7 @@ export default function Heading() {
 						content="Login"
 					/>
 					<LoginButton
-						Component={Button}
+						component={Button}
 						variant="contained"
 						sx={{
 							marginLeft: "10px",
@@ -70,7 +70,7 @@ export default function Heading() {
 				</Box>
 			) : (
 				<ProfileItems
-					Component={Box}
+				component={Box}
 					anchorOrigin={{
 						vertical: "bottom",
 						horizontal: "center",

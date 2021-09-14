@@ -1,19 +1,13 @@
 import { Box } from "@mui/system";
 import React from "react";
-import {
-	BookmarksOutlined,
-	Create,
-	FeedOutlined,
-	HomeOutlined,
-	Person,
-	NotificationsOutlined,
-} from "@mui/icons-material";
-import { Button, Avatar, Badge, Typography } from "@mui/material";
-import useStyles from "./leftSideBarStyles";
-import * as actions from "../../../redux/actions";
 
-import EmojiEmotionsIcon from "@mui/icons-material/EmojiEmotions";
+import { Button, Typography } from "@mui/material";
+import useStyles from "./leftSideBarStyles";
+import { EmojiEmotions } from "@mui/icons-material";
 import ProfileItems from "../../common/ProfileItems";
+import { Link } from "react-router-dom";
+import { routes } from "../../../constants/routes";
+
 export default function LeftSideBar() {
 	const classes = useStyles();
 
@@ -28,7 +22,7 @@ export default function LeftSideBar() {
 					justifyContent: "center",
 				}}
 			>
-				<EmojiEmotionsIcon
+				<EmojiEmotions
 					sx={{
 						fontWeight: "700",
 						fontSize: "25px",
@@ -48,68 +42,50 @@ export default function LeftSideBar() {
 					hocmay
 				</Typography>
 			</Box>
-			<Button
-				sx={{
-					height: "40px",
-					marginBottom: "15px",
-				}}
-				variant="contained"
-				startIcon={<Create />}
-				fullWidth
-			>
-				Write
-			</Button>
-			<Button
-				sx={{
-					height: "35px",
-					justifyContent: "flex-start",
-					textTransform: "none",
-					color: "text.primary",
-					"&:hover": {
-						backgroundColor: "backgroundSecondary.default",
-					},
-				}}
-				startIcon={<HomeOutlined />}
-				variant="text"
-				fullWidth
-			>
-				My Feed
-			</Button>
-			<Button
-				sx={{
-					height: "35px",
-					justifyContent: "flex-start",
-					textTransform: "none",
-					color: "text.primary",
-					"&:hover": {
-						backgroundColor: "backgroundSecondary.default",
-					},
-				}}
-				startIcon={<FeedOutlined />}
-				variant="text"
-				fullWidth
-			>
-				My Posts
-			</Button>
-			<Button
-				sx={{
-					height: "35px",
-					justifyContent: "flex-start",
-					textTransform: "none",
-					color: "text.primary",
-					"&:hover": {
-						backgroundColor: "backgroundSecondary.default",
-					},
-				}}
-				startIcon={<BookmarksOutlined />}
-				variant="text"
-				fullWidth
-			>
-				Saved
-			</Button>
+
+			{routes.map((route, index) => (
+				<Link
+					style={{
+						textDecoration: "none",
+					}}
+					key={index}
+					to={route.to}
+				>
+					{index === 0 ? (
+						<Button
+							sx={{
+								height: "40px",
+								marginBottom: "15px",
+							}}
+							variant="contained"
+							startIcon={route.startIcon}
+							fullWidth
+						>
+							{route.text}
+						</Button>
+					) : (
+						<Button
+							sx={{
+								height: "35px",
+								justifyContent: "flex-start",
+								textTransform: "none",
+								color: "text.primary",
+								"&:hover": {
+									backgroundColor: "backgroundSecondary.default",
+								},
+							}}
+							startIcon={route.startIcon}
+							variant="text"
+							fullWidth
+						>
+							{route.text}
+						</Button>
+					)}
+				</Link>
+			))}
 
 			<ProfileItems
-				Component={Box}
+				component={Box}
 				anchorOrigin={{
 					vertical: "top",
 					horizontal: "right",

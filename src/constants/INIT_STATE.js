@@ -1,5 +1,5 @@
 export const INIT_STATE = {
-	theme: {
+	blogState: {
 		themeMode: "light",
 	},
 };
