@@ -9,12 +9,18 @@ import { BorderRight } from "@mui/icons-material";
 export default function Home() {
 	const classes = useStyles();
 	return (
-		<Container maxWidth="lg">
-			<Grid container spacing={0} justifyContent="center">
+		<Container maxWidth>
+			<Grid
+				container
+				spacing={0}
+				justifyContent="center"
+				columns={{ xs: 12, sm: 12, md: 12, lg: 12, xl: 11 }}
+			>
 				<Box
 					component={Grid}
 					item
 					md={2}
+					xl={1}
 					display={{
 						xs: "none",
 						md: "block",
@@ -29,16 +35,17 @@ export default function Home() {
 					xs={12}
 					md={10}
 					lg={7}
+					xl={6}
 					className={classes.center}
 					sx={{
 						maxHeight: "100vh",
 						overflow: "auto",
-						borderLeftWidth: "1px",
-						borderLeftStyle: "solid",
-						borderLeftColor: "divider.main",
-						borderRightWidth: "1px",
-						borderRightStyle: "solid",
-						borderRightColor: "divider.main",
+						// borderLeftWidth: "1px",
+						// borderLeftStyle: "solid",
+						// borderLeftColor: "divider.main",
+						// borderRightWidth: "1px",
+						// borderRightStyle: "solid",
+						// borderRightColor: "divider.main",
 					}}
 				>
 					<HomeMainColumn />
@@ -47,6 +54,7 @@ export default function Home() {
 					component={Grid}
 					item
 					lg={3}
+					xl={2}
 					display={{
 						lg: "block",
 						xs: "none",

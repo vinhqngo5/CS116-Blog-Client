@@ -11,7 +11,7 @@ export default makeStyles((theme) => {
 		},
 		writeButton: {
 			height: "40px",
-			marginBottom: "10px",
+			marginBottom: "20px",
 		},
 		textButton: {
 			height: "35px",

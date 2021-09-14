@@ -6,7 +6,7 @@ export default makeStyles((theme) => {
 			height: "100vh",
 		},
 		center: {
-			backgroundColor: theme.palette.backgroundSecondary.default,
+			backgroundColor: theme.palette.background.default,
 			height: "200vh",
 		},
 		right: {
