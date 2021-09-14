@@ -1,4 +1,4 @@
 import { combineReducers } from "redux";
-import theme from "./theme";
+import blogState from "./blogState";
 
-export default combineReducers({ theme });
+export default combineReducers({ blogState });

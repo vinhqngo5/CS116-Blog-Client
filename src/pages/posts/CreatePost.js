@@ -2,10 +2,9 @@ import { Container, Grid } from "@mui/material";
 import React from "react";
 import LeftSideBar from "../../components/layout/leftSideBar/LeftSideBar";
 import RightSideBar from "../../components/layout/rightSideBar/RightSideBar";
-import HomeMainColumn from "../../components/home/HomeMainColumn";
 import { Box } from "@mui/system";
-import useStyles from "./homeStyles";
-export default function Home() {
+import useStyles from "../home/homeStyles";
+export default function CreatePost() {
 	const classes = useStyles();
 	return (
 		<Container>
@@ -39,16 +38,8 @@ export default function Home() {
 					sx={{
 						maxHeight: "100vh",
 						overflow: "auto",
-						// borderLeftWidth: "1px",
-						// borderLeftStyle: "solid",
-						// borderLeftColor: "divider.main",
-						// borderRightWidth: "1px",
-						// borderRightStyle: "solid",
-						// borderRightColor: "divider.main",
 					}}
-				>
-					<HomeMainColumn />
-				</Box>
+				></Box>
 				<Box
 					component={Grid}
 					item

@@ -1,7 +1,7 @@
 import { INIT_STATE } from "../../constants/INIT_STATE";
 import { getType, switchDarkMode, switchLightMode } from "../actions";
 
-export default function modalReducer(state = INIT_STATE.theme, action) {
+export default function modalReducer(state = INIT_STATE.blogState, action) {
 	switch (action.type) {
 		case getType(switchLightMode):
 			return {

@@ -1,15 +1,20 @@
 import React from "react";
-import { Button, IconButton, Popover, Typography } from "@mui/material";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { IconButton, Popover, Typography } from "@mui/material";
 import { Avatar, Badge } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions";
 import { themeModeState$ } from "../../redux/selectors";
-import { Person, NotificationsOutlined } from "@mui/icons-material";
+import {
+	Person,
+	NotificationsOutlined,
+	Brightness4,
+	Brightness7,
+} from "@mui/icons-material";
 import withLogin from "../../hoc/withLogin";
 
-export default function ProfileItems({ Component, anchorOrigin, ...props }) {
+export default function ProfileItems({ component, anchorOrigin, ...props }) {
+	// Note: variable name _must_ start with a capital letter to become Component, but props need to be start in lower case
+	const Component = component;
 	const mode = useSelector(themeModeState$);
 	const dispatch = useDispatch();
 	const switchThemeMode = () => {
@@ -19,7 +24,7 @@ export default function ProfileItems({ Component, anchorOrigin, ...props }) {
 	return (
 		<Component {...props}>
 			<IconButton sx={{}} onClick={switchThemeMode} color="inherit">
-				{mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+				{mode === "dark" ? <Brightness7 /> : <Brightness4 />}
 			</IconButton>
 			<IconButton color="inherit">
 				<Badge badgeContent={4} color="error">
@@ -100,7 +105,7 @@ const withPopover =
 								backgroundColor: "background.default",
 							},
 						}}
-						content="Signin"
+						content="Signup"
 					/>
 				</Popover>
 			</div>
