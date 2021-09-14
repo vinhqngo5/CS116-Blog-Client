@@ -110,6 +110,10 @@ export default function LeftSideBar() {
 
 			<ProfileItems
 				Component={Box}
+				anchorOrigin={{
+					vertical: "top",
+					horizontal: "right",
+				}}
 				sx={{
 					position: "fixed",
 					bottom: "0px",

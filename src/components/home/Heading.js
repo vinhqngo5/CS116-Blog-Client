@@ -71,13 +71,15 @@ export default function Heading() {
 			) : (
 				<ProfileItems
 					Component={Box}
+					anchorOrigin={{
+						vertical: "bottom",
+						horizontal: "center",
+					}}
 					sx={{
 						display: "flex",
 						flexDirection: "row",
-						// width: "100%",
 						alignItems: "center",
 						justifyContent: "center",
-						// bgcolor: "background.default",
 						color: "text.primary",
 						borderRadius: 1,
 					}}

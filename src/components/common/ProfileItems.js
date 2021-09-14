@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButton } from "@mui/material";
+import { Button, IconButton, Popover, Typography } from "@mui/material";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { Avatar, Badge } from "@mui/material";
@@ -7,8 +7,9 @@ import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions";
 import { themeModeState$ } from "../../redux/selectors";
 import { Person, NotificationsOutlined } from "@mui/icons-material";
+import withLogin from "../../hoc/withLogin";
 
-export default function ProfileItems({ Component, ...props }) {
+export default function ProfileItems({ Component, anchorOrigin, ...props }) {
 	const mode = useSelector(themeModeState$);
 	const dispatch = useDispatch();
 	const switchThemeMode = () => {
@@ -26,7 +27,8 @@ export default function ProfileItems({ Component, ...props }) {
 				</Badge>
 			</IconButton>
 
-			<Avatar
+			<AvatarWithPopover
+				anchorOrigin={anchorOrigin}
 				sx={{
 					bgcolor: "primary.main",
 					margin: "20px",
@@ -44,7 +46,67 @@ export default function ProfileItems({ Component, ...props }) {
 						color: "#fff",
 					}}
 				/>
-			</Avatar>
+			</AvatarWithPopover>
 		</Component>
 	);
 }
+
+const withPopover =
+	(Component) =>
+	({ anchorOrigin, ...props }) => {
+		const [anchorEl, setAnchorEl] = React.useState(null);
+
+		const handleClick = (event) => {
+			setAnchorEl(event.currentTarget);
+		};
+
+		const handleClose = () => {
+			setAnchorEl(null);
+		};
+
+		const open = Boolean(anchorEl);
+		const id = open ? "simple-popover" : undefined;
+
+		return (
+			<div>
+				<Component {...props} onClick={handleClick} />
+
+				<Popover
+					id={id}
+					open={open}
+					anchorEl={anchorEl}
+					onClose={handleClose}
+					anchorOrigin={anchorOrigin}
+				>
+					<LoginTypo
+						sx={{
+							p: 2,
+							cursor: "pointer",
+							color: "text.secondary",
+							"&:hover": {
+								color: "text.primary",
+								backgroundColor: "background.default",
+							},
+						}}
+						content="Login"
+					/>
+					<LoginTypo
+						sx={{
+							p: 2,
+							cursor: "pointer",
+							color: "text.secondary",
+							"&:hover": {
+								color: "text.primary",
+								backgroundColor: "background.default",
+							},
+						}}
+						content="Signin"
+					/>
+				</Popover>
+			</div>
+		);
+	};
+
+const LoginTypo = withLogin(Typography);
+
+const AvatarWithPopover = withPopover(Avatar);
