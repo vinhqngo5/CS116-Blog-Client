@@ -1,6 +1,7 @@
 html {
 	overflow: scroll;
 	overflow-x: hidden;
+	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 ::-webkit-scrollbar {
 	width: 0; /* Remove scrollbar space */
