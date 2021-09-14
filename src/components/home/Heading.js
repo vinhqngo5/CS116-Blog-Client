@@ -1,7 +1,10 @@
 import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import WithLogin from "../../hoc/WithLogin";
+import withLogin from "../../hoc/withLogin";
+
+export const LoginButton = withLogin(Button);
+
 export default function Heading() {
 	return (
 		<Box
@@ -23,7 +26,7 @@ export default function Heading() {
 				Blogging as a developer, done right!
 			</Typography>
 			<Box>
-				<WithLogin
+				<LoginButton
 					Component={Button}
 					sx={{
 						textTransform: "none",
@@ -31,7 +34,7 @@ export default function Heading() {
 					variant="outlined"
 					content="Login"
 				/>
-				<WithLogin
+				<LoginButton
 					Component={Button}
 					variant="contained"
 					sx={{
@@ -44,3 +47,5 @@ export default function Heading() {
 		</Box>
 	);
 }
+
+
