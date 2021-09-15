@@ -3,7 +3,6 @@ import { Button, Paper, Typography, useMediaQuery } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import withLogin from "../../hoc/withLogin";
-import ProfileItems from "../common/ProfileItems";
 
 export const LoginButton = withLogin(Button);
 

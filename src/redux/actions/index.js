@@ -1,4 +1,4 @@
-import { createAction, createActions } from "redux-actions";
+import { createAction } from "redux-actions";
 
 export const getType = (reduxAction) => {
 	return reduxAction().type;

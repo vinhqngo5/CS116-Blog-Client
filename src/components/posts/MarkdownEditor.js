@@ -1,6 +1,5 @@
 import * as React from "react";
 import ReactMde from "react-mde";
-import ReactDOM from "react-dom";
 import * as Showdown from "showdown";
 import "./markdownEditor.css";
 
