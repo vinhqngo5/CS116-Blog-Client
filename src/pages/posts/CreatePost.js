@@ -4,10 +4,11 @@ import LeftSideBar from "../../components/layout/leftSideBar/LeftSideBar";
 import RightSideBar from "../../components/layout/rightSideBar/RightSideBar";
 import { Box } from "@mui/system";
 import useStyles from "../home/homeStyles";
+import MarkdownColumn from "../../components/posts/MarkdownColumn";
 export default function CreatePost() {
 	const classes = useStyles();
 	return (
-		<Container>
+		<Container  maxWidth="xl">
 			<Grid
 				container
 				spacing={0}
@@ -39,7 +40,9 @@ export default function CreatePost() {
 						maxHeight: "100vh",
 						overflow: "auto",
 					}}
-				></Box>
+				>
+					<MarkdownColumn />
+				</Box>
 				<Box
 					component={Grid}
 					item

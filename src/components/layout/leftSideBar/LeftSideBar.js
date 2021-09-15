@@ -78,7 +78,17 @@ export default function LeftSideBar() {
 							variant="text"
 							fullWidth
 						>
-							{route.text}
+							<Typography
+								variant="caption"
+								component="div"
+								sx={{
+									color: "text.secondary",
+									fontSize: "14px",
+								}}
+							>
+								{" "}
+								{route.text}
+							</Typography>
 						</Button>
 					)}
 				</Link>

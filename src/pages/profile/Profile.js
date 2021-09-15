@@ -2,10 +2,10 @@ import { Container, Grid } from "@mui/material";
 import React from "react";
 import LeftSideBar from "../../components/layout/leftSideBar/LeftSideBar";
 import RightSideBar from "../../components/layout/rightSideBar/RightSideBar";
-import HomeMainColumn from "../../components/home/HomeMainColumn";
+import ProfileMainColumn from "../../components/profile/ProfileMainColumn";
 import { Box } from "@mui/system";
-import useStyles from "./homeStyles";
-export default function Home() {
+import useStyles from "../home/homeStyles";
+export default function Profile() {
 	const classes = useStyles();
 	return (
 		<Container maxWidth="xl">
@@ -41,7 +41,7 @@ export default function Home() {
 						overflow: "auto",
 					}}
 				>
-					<HomeMainColumn />
+					<ProfileMainColumn />
 				</Box>
 				<Box
 					component={Grid}
