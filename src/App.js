@@ -8,6 +8,7 @@ import getDesignTokens from "./utils/getDesigntokens";
 import { useSelector } from "react-redux";
 import { themeModeState$ } from "./redux/selectors";
 import { makeStyles } from "@mui/styles";
+import Profile from "./pages/profile/Profile";
 
 const useStyles = makeStyles((theme) => {
 	return {
@@ -30,6 +31,9 @@ export function App() {
 					</Route>
 					<Route exact path="/posts/create">
 						<CreatePost />
+					</Route>
+					<Route exact path="/profile">
+						<Profile />
 					</Route>
 				</Switch>
 			</Router>

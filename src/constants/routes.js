@@ -1,15 +1,21 @@
 import {
 	BookmarksOutlined,
-	Create,
+	CreateOutlined,
 	FeedOutlined,
 	HomeOutlined,
+	PersonOutlined,
 } from "@mui/icons-material";
 
 export const routes = [
 	{
 		text: "Write",
-		startIcon: <Create />,
+		startIcon: <CreateOutlined />,
 		to: "/posts/create",
+	},
+	{
+		text: "Profile",
+		startIcon: <PersonOutlined />,
+		to: "/profile",
 	},
 	{
 		text: "My Feed",

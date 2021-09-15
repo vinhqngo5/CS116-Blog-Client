@@ -1,10 +1,19 @@
-import { Button, Grid, IconButton, Paper, TextField } from "@mui/material";
+import {
+	Button,
+	Grid,
+	IconButton,
+	Paper,
+	TextField,
+	useMediaQuery,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import MarkdownEditor from "./MarkdownEditor";
 import ImageUploading from "react-images-uploading";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import { Delete, HighlightOffOutlined } from "@mui/icons-material";
+import { ScheduleSendOutlined } from "@mui/icons-material";
+import { useTheme } from "@emotion/react";
 
 export default function MarkdownColumn() {
 	return (
@@ -28,11 +37,12 @@ export default function MarkdownColumn() {
 							}}
 						>
 							<TextField
+								multiline
 								sx={{
 									width: "70%",
 									marginBottom: "20px",
 								}}
-								inputProps={{ style: { fontSize: 40 } }} // font size of input text
+								inputProps={{ style: { fontSize: 40, lineHeight: "40px" } }} // font size of input text
 								InputLabelProps={{
 									style: { fontSize: 20, lineHeight: "20px" },
 								}} // font size of input label
@@ -41,6 +51,7 @@ export default function MarkdownColumn() {
 								size="large"
 							/>
 							<TextField
+								multiline
 								sx={{
 									width: "100%",
 								}}
@@ -58,11 +69,24 @@ export default function MarkdownColumn() {
 				</Grid>
 			</Box>
 			<MarkdownEditor />
+			<Button
+				sx={{
+					height: "40px",
+					marginBottom: "15px",
+				}}
+				variant="contained"
+				startIcon={<ScheduleSendOutlined />}
+				fullWidth
+			>
+				Publish
+			</Button>
 		</Box>
 	);
 }
 
 function ImageUploader() {
+	const theme = useTheme();
+	const matches = useMediaQuery(theme.breakpoints.up("sm"));
 	const [images, setImages] = React.useState([]);
 	const onChange = (imageList, addUpdateIndex) => {
 		// data for submit
@@ -75,7 +99,7 @@ function ImageUploader() {
 			sx={{
 				display: "flex",
 				alignItems: "center",
-				justifyContent: "center",
+				justifyContent: matches ? "flex-end" : "center",
 				padding: "20px",
 			}}
 		>
@@ -91,8 +115,8 @@ function ImageUploader() {
 				}) => (
 					<Box
 						sx={{
-							height: "150px",
-							width: "300px",
+							height: matches ? "150px" : "250px",
+							width: matches ? "300px" : "500px",
 						}}
 					>
 						{!images.length ? (
@@ -120,6 +144,8 @@ function ImageUploader() {
 							<Box
 								sx={{
 									position: "relative",
+									height: "100%",
+									width: "100%",
 								}}
 							>
 								<img
