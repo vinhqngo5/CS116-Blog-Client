@@ -1,10 +1,7 @@
-import { Container, IconButton, Paper, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Container, Paper } from "@mui/material";
 import React from "react";
 import Heading from "./Heading";
-import useStyles from "./homeMainColumnStyles";
 import { BlogPost } from "./BlogPost";
-import SmallHeader from "../layout/header/SmallHeader";
 
 export default function HomeMainColumn() {
 	return (
@@ -20,7 +17,6 @@ export default function HomeMainColumn() {
 				padding: "0px",
 			}}
 		>
-			<SmallHeader />
 			<Heading />
 			<HomeContent />
 		</Container>
