@@ -4,6 +4,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
 import CreatePost from "./pages/posts/CreatePost";
+import Posts from "./pages/posts/Posts";
 import getDesignTokens from "./utils/getDesigntokens";
 import { useSelector } from "react-redux";
 import { themeModeState$ } from "./redux/selectors";
@@ -34,6 +35,9 @@ export function App() {
 					</Route>
 					<Route exact path="/profile">
 						<Profile />
+					</Route>
+					<Route exact path="/posts">
+						<Posts />
 					</Route>
 				</Switch>
 			</Router>
