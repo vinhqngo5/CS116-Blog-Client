@@ -14,6 +14,7 @@ import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import { Delete, HighlightOffOutlined } from "@mui/icons-material";
 import { ScheduleSendOutlined } from "@mui/icons-material";
 import { useTheme } from "@emotion/react";
+import SmallHeader from "../layout/header/SmallHeader";
 
 export default function MarkdownColumn() {
 	return (
@@ -23,6 +24,7 @@ export default function MarkdownColumn() {
 					minHeight: "200px",
 				}}
 			>
+				<SmallHeader />
 				<Grid
 					container
 					style={{

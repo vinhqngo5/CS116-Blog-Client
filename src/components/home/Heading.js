@@ -10,6 +10,7 @@ export const LoginButton = withLogin(Button);
 export default function Heading() {
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.up("md"));
+	if (!matches) return null;
 	return (
 		<Paper
 			variant="outlined"
@@ -48,43 +49,26 @@ export default function Heading() {
 					Recent articles from the community
 				</Typography>
 			</Box>
-			{matches ? (
-				<Box>
-					<LoginButton
-						component={Button}
-						sx={{
-							textTransform: "none",
-						}}
-						variant="outlined"
-						content="Login"
-					/>
-					<LoginButton
-						component={Button}
-						variant="contained"
-						sx={{
-							marginLeft: "10px",
-							textTransform: "none",
-						}}
-						content="Create an account"
-					/>
-				</Box>
-			) : (
-				<ProfileItems
-				component={Box}
-					anchorOrigin={{
-						vertical: "bottom",
-						horizontal: "center",
-					}}
+
+			<Box>
+				<LoginButton
+					component={Button}
 					sx={{
-						display: "flex",
-						flexDirection: "row",
-						alignItems: "center",
-						justifyContent: "center",
-						color: "text.primary",
-						borderRadius: 1,
+						textTransform: "none",
 					}}
-				></ProfileItems>
-			)}
+					variant="outlined"
+					content="Login"
+				/>
+				<LoginButton
+					component={Button}
+					variant="contained"
+					sx={{
+						marginLeft: "10px",
+						textTransform: "none",
+					}}
+					content="Create an account"
+				/>
+			</Box>
 		</Paper>
 	);
 }

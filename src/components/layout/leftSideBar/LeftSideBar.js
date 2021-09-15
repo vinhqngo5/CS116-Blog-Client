@@ -2,17 +2,14 @@ import { Box } from "@mui/system";
 import React from "react";
 
 import { Button, Typography } from "@mui/material";
-import useStyles from "./leftSideBarStyles";
 import { EmojiEmotions } from "@mui/icons-material";
 import ProfileItems from "../../common/ProfileItems";
 import { Link } from "react-router-dom";
 import { routes } from "../../../constants/routes";
 
 export default function LeftSideBar() {
-	const classes = useStyles();
-
 	return (
-		<Box className={classes.leftSideBar}>
+		<Box sx={{ padding: "10px 20px 10px 10px" }}>
 			<Box
 				sx={{
 					marginTop: "10px",
@@ -34,7 +31,7 @@ export default function LeftSideBar() {
 						fontWeight: "700",
 						fontSize: "25px",
 						lineHeight: 1,
-						paddingLeft: "5px",
+						paddingLeft: "0px",
 						color: "text.primary",
 					}}
 					component="div"
@@ -108,7 +105,6 @@ export default function LeftSideBar() {
 					// width: "100%",
 					alignItems: "center",
 					justifyContent: "center",
-					bgcolor: "background.default",
 					color: "text.primary",
 					borderRadius: 1,
 					p: 3,

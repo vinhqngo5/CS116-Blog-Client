@@ -1,5 +1,6 @@
 import { Container } from "@mui/material";
 import React from "react";
+import SmallHeader from "../layout/header/SmallHeader";
 export default function PostsMainColumn() {
 	const array = [];
 	return (
@@ -11,6 +12,8 @@ export default function PostsMainColumn() {
 				overflowX: "hidden",
 				padding: "0px",
 			}}
-		></Container>
+		>
+			<SmallHeader />
+		</Container>
 	);
 }
