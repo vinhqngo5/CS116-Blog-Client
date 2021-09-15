@@ -8,7 +8,7 @@ import useStyles from "./homeStyles";
 export default function Home() {
 	const classes = useStyles();
 	return (
-		<Container>
+		<Container maxWidth="xl">
 			<Grid
 				container
 				spacing={0}

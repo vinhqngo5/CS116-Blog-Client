@@ -28,6 +28,7 @@ const getDesignTokens = (mode) => ({
 				: {
 						paper: "#232626",
 						default: "#232626",
+						alpha: "",
 				  }),
 		},
 		background: {
@@ -35,8 +36,9 @@ const getDesignTokens = (mode) => ({
 				? {
 						paper: "#ffffff",
 						default: "#f5f7fa",
+						alpha: "#c3c3c3",
 				  }
-				: { paper: "#232626", default: "#18191a" }),
+				: { paper: "#232626", default: "#18191a", alpha: "rgb(125 122 122)" }),
 		},
 		divider: {
 			...(mode === "light"

@@ -8,7 +8,7 @@ import MarkdownColumn from "../../components/posts/MarkdownColumn";
 export default function CreatePost() {
 	const classes = useStyles();
 	return (
-		<Container>
+		<Container  maxWidth="xl">
 			<Grid
 				container
 				spacing={0}
