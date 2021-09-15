@@ -1,10 +1,10 @@
 import { Container } from "@mui/material";
-import { Box } from "@mui/system";
 import React from "react";
 import AvatarAndCover from "./AvatarAndCover";
+import ProfileContent from "./ProfileContent";
+import SmallHeader from "../layout/header/SmallHeader";
+
 export default function ProfileMainColumn() {
-	const array = [];
-	for (let i = 0; i < 100; i++) array.push(i);
 	return (
 		<Container
 			style={{
@@ -18,7 +18,9 @@ export default function ProfileMainColumn() {
 				padding: "0px",
 			}}
 		>
+			<SmallHeader />
 			<AvatarAndCover />
+			<ProfileContent />
 		</Container>
 	);
 }

@@ -1,4 +1,4 @@
-import { Avatar, Button, Container, Paper, Typography } from "@mui/material";
+import { Avatar, Button, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { CreateOutlined } from "@mui/icons-material";
@@ -9,11 +9,11 @@ export default function AvatarAndCover() {
 			variant="outlined"
 			elevation={0}
 			sx={{
-				margin: "10px 0px",
+				margin: "10px 0px 16px 0px",
 				borderWidth: "1px",
 				borderStyle: "solid",
 				borderColor: "divider.main",
-				height: "400px",
+				minHeight: "400px",
 				position: "relative",
 			}}
 		>
@@ -24,16 +24,16 @@ export default function AvatarAndCover() {
 						)`,
 					backgroundSize: "cover",
 					width: "100%",
-					height: "65%",
+					height: "260px",
 				}}
 			></Box>
 			<Avatar
 				src="https://picsum.photos/170"
 				sx={{
 					position: "absolute",
-					top: "50%",
+					top: "250px",
 					left: "50%",
-					transform: "translate(-50%, -45%)",
+					transform: "translate(-50%, -70%)",
 					borderWidth: "3px",
 					borderStyle: "solid",
 					borderColor: "divider.border",
@@ -49,9 +49,10 @@ export default function AvatarAndCover() {
 			</Avatar>
 			<Box
 				sx={{
-					paddingTop: "45px",
+					boxSizing: "border-box",
+					padding: "45px 20px 10px 20px",
 					width: "100%",
-					height: "30%",
+					minHeight: "150px",
 					display: "flex",
 					alignItems: "center",
 					flexDirection: "column",

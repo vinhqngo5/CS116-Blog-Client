@@ -74,6 +74,16 @@ const getDesignTokens = (mode) => ({
 				},
 			},
 		},
+		MuiDrawer: {
+			styleOverrides: {
+				// Name of the slot
+				paper: {
+					// Some CSS
+					// width: "60% !important",
+					position: "static",
+				},
+			},
+		},
 	},
 });
 

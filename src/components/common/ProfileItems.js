@@ -1,5 +1,5 @@
 import React from "react";
-import { IconButton, Popover, Typography } from "@mui/material";
+import { IconButton, Popover, Typography, useMediaQuery } from "@mui/material";
 import { Avatar, Badge } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions";
@@ -11,12 +11,15 @@ import {
 	Brightness7,
 } from "@mui/icons-material";
 import withLogin from "../../hoc/withLogin";
+import { useTheme } from "@emotion/react";
 
 export default function ProfileItems({ component, anchorOrigin, ...props }) {
 	// Note: variable name _must_ start with a capital letter to become Component, but props need to be start in lower case
 	const Component = component;
 	const mode = useSelector(themeModeState$);
 	const dispatch = useDispatch();
+	const theme = useTheme();
+	const matches = useMediaQuery(theme.breakpoints.up("md"));
 	const switchThemeMode = () => {
 		if (mode === "light") dispatch(actions.switchDarkMode());
 		else dispatch(actions.switchLightMode());
@@ -36,7 +39,7 @@ export default function ProfileItems({ component, anchorOrigin, ...props }) {
 				anchorOrigin={anchorOrigin}
 				sx={{
 					bgcolor: "primary.main",
-					margin: "20px",
+					margin: matches ? "20px" : "0px 20px",
 					width: "35px",
 					height: "35px",
 					borderWidth: "1.5px",

@@ -1,10 +1,10 @@
 import React from "react";
-import MarkdownColumn from "../../components/posts/MarkdownColumn";
+import PostsMainColumn from "../../components/posts/PostsMainColumn";
 import MainColumnContainer from "../../components/layout/mainColumnContainer/MainColumnContainer";
-export default function CreatePost() {
+export default function Profile() {
 	return (
 		<MainColumnContainer>
-			<MarkdownColumn />
+			<PostsMainColumn />
 		</MainColumnContainer>
 	);
 }
