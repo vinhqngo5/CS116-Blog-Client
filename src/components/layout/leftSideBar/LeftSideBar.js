@@ -1,11 +1,12 @@
 import { Box } from "@mui/system";
 import React from "react";
 
-import { Button, Typography } from "@mui/material";
+import { Button } from "@mui/material";
 import { EmojiEmotions } from "@mui/icons-material";
 import ProfileItems from "../../common/ProfileItems";
 import { Link } from "react-router-dom";
 import { routes } from "../../../constants/routes";
+import { BlogCaption, BlogH6 } from "../../common/BlogTypography";
 
 export default function LeftSideBar() {
 	return (
@@ -35,18 +36,7 @@ export default function LeftSideBar() {
 							color: "primary.main",
 						}}
 					/>
-					<Typography
-						sx={{
-							fontWeight: "700",
-							fontSize: "25px",
-							lineHeight: 1,
-							paddingLeft: "0px",
-							color: "text.primary",
-						}}
-						component="div"
-					>
-						hocmay
-					</Typography>
+					<BlogH6>hocmay</BlogH6>
 				</Box>
 
 				{routes.map((route, index) => (
@@ -84,17 +74,7 @@ export default function LeftSideBar() {
 								variant="text"
 								fullWidth
 							>
-								<Typography
-									variant="caption"
-									component="div"
-									sx={{
-										color: "text.secondary",
-										fontSize: "14px",
-									}}
-								>
-									{" "}
-									{route.text}
-								</Typography>
+								<BlogCaption> {route.text}</BlogCaption>
 							</Button>
 						)}
 					</Link>

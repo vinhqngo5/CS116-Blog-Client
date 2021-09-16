@@ -1,7 +1,8 @@
-import { Avatar, Button, Paper, Typography } from "@mui/material";
+import { Avatar, Button, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { CreateOutlined } from "@mui/icons-material";
+import { BlogCaption, BlogH5 } from "../common/BlogTypography";
 
 export default function AvatarAndCover() {
 	return (
@@ -58,27 +59,8 @@ export default function AvatarAndCover() {
 					flexDirection: "column",
 				}}
 			>
-				<Typography
-					variant="h6"
-					component="div"
-					sx={{
-						color: "text.primary",
-						fontSize: "30px",
-						fontWeight: "700",
-					}}
-				>
-					Vinh Quang Ngo
-				</Typography>
-				<Typography
-					variant="caption"
-					component="div"
-					sx={{
-						color: "text.secondary",
-						fontSize: "14px",
-					}}
-				>
-					Software developer 😜
-				</Typography>
+				<BlogH5>Vinh Quang Ngo</BlogH5>
+				<BlogCaption>Software developer 😜</BlogCaption>
 				<Button
 					sx={{
 						height: "35px",
@@ -91,17 +73,7 @@ export default function AvatarAndCover() {
 					startIcon={<CreateOutlined />}
 					variant="text"
 				>
-					<Typography
-						variant="caption"
-						component="div"
-						sx={{
-							color: "text.secondary",
-							fontSize: "14px",
-						}}
-					>
-						{" "}
-						Edit Profile
-					</Typography>
+					<BlogCaption> Edit Profile</BlogCaption>
 				</Button>
 			</Box>
 		</Paper>

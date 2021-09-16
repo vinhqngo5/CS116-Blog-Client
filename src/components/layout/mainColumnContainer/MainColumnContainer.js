@@ -1,10 +1,13 @@
-import { Container, Grid } from "@mui/material";
+import { Container, Grid, useMediaQuery } from "@mui/material";
 import React from "react";
 import { Box } from "@mui/system";
 import LeftSideBar from "../leftSideBar/LeftSideBar";
 import RightSideBar from "../rightSideBar/RightSideBar";
 import SmallHeader from "../header/SmallHeader";
+import { useTheme } from "@emotion/react";
 export default function MainColumnContainer(props) {
+	const theme = useTheme();
+	const matches = useMediaQuery(theme.breakpoints.up("md"));
 	return (
 		<Container maxWidth="xl">
 			<Grid
@@ -34,7 +37,7 @@ export default function MainColumnContainer(props) {
 						sx={{
 							overflow: "auto",
 							backgroundColor: "background.default",
-							maxHeight: "90vh",
+							maxHeight: matches ? "100vh" : "90vh",
 							borderRadius: "4px",
 						}}
 					>

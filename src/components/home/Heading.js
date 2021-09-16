@@ -1,8 +1,9 @@
 import { useTheme } from "@emotion/react";
-import { Button, Paper, Typography, useMediaQuery } from "@mui/material";
+import { Button, Paper, useMediaQuery } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import withLogin from "../../hoc/withLogin";
+import { BlogCaption, BlogH6 } from "../common/BlogTypography";
 
 export const LoginButton = withLogin(Button);
 
@@ -26,27 +27,8 @@ export default function Heading() {
 			}}
 		>
 			<Box>
-				<Typography
-					variant="h6"
-					component="div"
-					sx={{
-						color: "text.primary",
-						fontSize: "25px",
-						fontWeight: "700",
-					}}
-				>
-					Community Feed
-				</Typography>
-				<Typography
-					variant="caption"
-					component="div"
-					sx={{
-						color: "text.secondary",
-						fontSize: "14px",
-					}}
-				>
-					Recent articles from the community
-				</Typography>
+				<BlogH6>Community Feed</BlogH6>
+				<BlogCaption>Recent articles from the community</BlogCaption>
 			</Box>
 
 			<Box>

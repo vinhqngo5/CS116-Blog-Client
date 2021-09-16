@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { themeModeState$ } from "./redux/selectors";
 import { makeStyles } from "@mui/styles";
 import Profile from "./pages/profile/Profile";
+import NotFound from "./pages/notfound/NotFound";
 
 const useStyles = makeStyles((theme) => {
 	return {
@@ -38,6 +39,9 @@ export function App() {
 					</Route>
 					<Route exact path="/posts">
 						<Posts />
+					</Route>
+					<Route path="/:path">
+						<NotFound />
 					</Route>
 				</Switch>
 			</Router>

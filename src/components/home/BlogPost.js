@@ -1,8 +1,15 @@
-import { Avatar, Grid, Typography } from "@mui/material";
+import { Avatar, Grid } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { ThumbUpAltOutlined, MessageOutlined } from "@mui/icons-material";
 import Dotdotdot from "react-dotdotdot";
+import {
+	BlogH6,
+	BlogCaption,
+	BlogCaptionSmall,
+	BlogSubtitle,
+	BlogBodyText,
+} from "../common/BlogTypography";
 
 export function BlogPost() {
 	return (
@@ -51,16 +58,8 @@ export function BlogHeader() {
 					V
 				</Avatar>
 				<Box>
-					<Typography
-						component="div"
-						variant="subtitle2"
-						px={{ lineHeight: 1.2 }}
-					>
-						Vinh Quang Ngo
-					</Typography>
-					<Typography component="div" variant="caption">
-						Sep 13, 2021
-					</Typography>
+					<BlogSubtitle>Vinh Quang Ngo</BlogSubtitle>
+					<BlogCaptionSmall>Sep 13, 2021</BlogCaptionSmall>
 				</Box>
 			</Box>
 		</Grid>
@@ -79,41 +78,17 @@ export function BlogContent() {
 		>
 			{" "}
 			<Grid item xs={12} sm={7}>
-				<Typography
-					variant="h6"
-					component="div"
-					sx={{
-						color: "text.primary",
-						fontSize: "25px",
-						fontWeight: "700",
-					}}
-					gutterBottom
-				>
+				<BlogH6 gutterBottom>
 					The Hashnode Mobile App Has Finally Arrived 📱🚀
-				</Typography>
-				<Typography
-					variant="caption"
-					component="div"
-					sx={{
-						color: "text.secondary",
-						fontSize: "14px",
-					}}
-					gutterBottom
-				>
-					townhall.hashnode.com
-				</Typography>
+				</BlogH6>
+				<BlogCaption gutterBottom>townhall.hashnode.com</BlogCaption>
 				<Dotdotdot clamp={4}>
-					<Typography
-						variant="body2"
-						color="textSecondary"
-						component="div"
-						gutterBottom
-					>
+					<BlogBodyText gutterBottom>
 						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci
 						ratione in vel quos eligendi, cupiditate deserunt harum molestias
 						dolor sint veniam totam provident non assumenda! Nemo velit magni
 						quidem temporibus?
-					</Typography>
+					</BlogBodyText>
 				</Dotdotdot>
 			</Grid>
 			<Grid
@@ -186,16 +161,13 @@ export function BlogAction() {
 							color: "text.secondary",
 						}}
 					/>
-					<Typography
-						variant="caption"
+					<BlogCaption
 						sx={{
 							padding: "2px 0px 0px 2px",
-							color: "text.secondary",
-							fontSize: "14px",
 						}}
 					>
 						424
-					</Typography>
+					</BlogCaption>
 				</Box>
 				<Box
 					sx={{
@@ -210,16 +182,14 @@ export function BlogAction() {
 							color: "text.secondary",
 						}}
 					/>
-					<Typography
+					<BlogCaption
 						variant="caption"
 						sx={{
 							padding: "2px 0px 0px 2px",
-							color: "text.secondary",
-							fontSize: "14px",
 						}}
 					>
 						49
-					</Typography>
+					</BlogCaption>
 				</Box>
 			</Box>
 		</Grid>

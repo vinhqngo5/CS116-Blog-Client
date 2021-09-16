@@ -4,7 +4,6 @@ import {
 	IconButton,
 	Drawer,
 	Paper,
-	Typography,
 	useMediaQuery,
 } from "@mui/material";
 import { Box } from "@mui/system";
@@ -13,6 +12,7 @@ import withLogin from "../../../hoc/withLogin";
 import ProfileItems from "../../common/ProfileItems";
 import LeftSideBar from "../leftSideBar/LeftSideBar";
 import { Dehaze, EmojiEmotions } from "@mui/icons-material";
+import { BlogH6 } from "../../common/BlogTypography";
 export const LoginButton = withLogin(Button);
 
 export default function SmallHeader() {
@@ -69,18 +69,7 @@ export default function SmallHeader() {
 						color: "primary.main",
 					}}
 				/>
-				<Typography
-					sx={{
-						fontWeight: "700",
-						fontSize: "25px",
-						lineHeight: 1,
-						paddingLeft: "0px",
-						color: "text.primary",
-					}}
-					component="div"
-				>
-					hocmay
-				</Typography>
+				<BlogH6>hocmay</BlogH6>
 			</Box>
 
 			<ProfileItems
