@@ -63,7 +63,7 @@ export default function MarkdownEditor() {
 	};
 
 	return (
-		<div>
+		<div className="theme-switch-wrapper">
 			<ReactMde
 				value={value}
 				onChange={setValue}

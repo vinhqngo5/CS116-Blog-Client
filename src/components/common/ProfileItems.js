@@ -14,6 +14,14 @@ import withLogin from "../../hoc/withLogin";
 import { useTheme } from "@emotion/react";
 
 export default function ProfileItems({ component, anchorOrigin, ...props }) {
+	function switchTheme(element, mode) {
+		console.log(
+			"🚀 ~ file: ProfileItems.js ~ line 18 ~ switchTheme ~ element",
+			element
+		);
+		if (element) element.setAttribute("data-theme", mode);
+	}
+
 	// Note: variable name _must_ start with a capital letter to become Component, but props need to be start in lower case
 	const Component = component;
 	const mode = useSelector(themeModeState$);
@@ -21,8 +29,14 @@ export default function ProfileItems({ component, anchorOrigin, ...props }) {
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.up("md"));
 	const switchThemeMode = () => {
-		if (mode === "light") dispatch(actions.switchDarkMode());
-		else dispatch(actions.switchLightMode());
+		const switchThemeWrapper = document.querySelector(".theme-switch-wrapper");
+		if (mode === "light") {
+			dispatch(actions.switchDarkMode());
+			switchTheme(switchThemeWrapper, "dark");
+		} else {
+			dispatch(actions.switchLightMode());
+			switchTheme(switchThemeWrapper, "light");
+		}
 	};
 	return (
 		<Component {...props}>

@@ -1,11 +1,28 @@
+:root {
+	--background-default-color: #f5f7fa;
+	--background-paper-color: #ffffff;
+	--background-alpha-color: #c3c3c3;
+	--text-primary-color: #424242;
+	--text-primary-reverse-color: #424242;
+	--text-primary-reverse-color: #424242;
+}
+
+[data-theme="dark"] {
+	--background-default-color: #18191a;
+	--background-paper-color: #232626;
+	--background-alpha-color: rgb(125 122 122);
+	--text-primary-color: rgb(245, 245, 245);
+	--text-primary-reverse-color: #424242;
+	--text-primary-color: rgb(245, 245, 245);
+}
 .mde-header {
 	flex-shrink: 0;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: stretch;
 	/* border: 1px solid #e5e7eb; */
-	border-radius: 2px;
-	background: #f5f7fa;
+	border-radius: 4px 4px 0 0;
+	background: var(--background-paper-color);
 }
 .mde-header .mde-tabs {
 	display: flex;
@@ -14,7 +31,7 @@
 }
 .mde-header .mde-tabs button {
 	font-weight: 600;
-	color: #424242;
+	color: var(--text-primary-color);
 	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 	border-radius: 2px;
 	margin: 6px 3px;
@@ -63,7 +80,7 @@
 	margin: 0;
 	border: none;
 	background: none;
-	color: #424242;
+	color: var(--text-primary-color);
 }
 
 @keyframes tooltip-appear {
@@ -124,12 +141,15 @@
 
 .mde-textarea-wrapper {
 	position: relative;
-  
+	background-color: var(--background-paper-color);
+	border-radius: 0px 0px 4px 4px;
+	overflow: hidden;
 }
 
 .mde-textarea-wrapper textarea.mde-text {
 	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-	color: #424242;
+	background-color: var(--background-paper-color);
+	color: var(--text-primary-color);
 	border-radius: 8px;
 	min-height: 50vh !important;
 	width: 100%;
@@ -146,8 +166,10 @@
 .mde-preview .mde-preview-content {
 	padding: 10px;
 	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-	color: #424242;
+	color: var(--text-primary-color);
+	background-color: var(--background-paper-color);
 }
+
 .mde-preview .mde-preview-content p,
 .mde-preview .mde-preview-content blockquote,
 .mde-preview .mde-preview-content ul,
@@ -157,6 +179,7 @@
 .mde-preview .mde-preview-content pre {
 	margin-top: 0;
 	margin-bottom: 16px;
+	line-height: 1.5em;
 }
 .mde-preview .mde-preview-content h1,
 .mde-preview .mde-preview-content h2,
@@ -235,6 +258,7 @@
 	white-space: pre;
 	background: transparent;
 	border: 0;
+	color: var(--text-primary-reverse-color);
 }
 .mde-preview .mde-preview-content a {
 	color: #4078c0;
@@ -287,7 +311,7 @@
 	font-size: 13px;
 	line-height: 16px;
 	color: gray;
-	background-color: #f5f7fa;
+	background-color: var(--background-paper-color);
 	border-top: 1px solid #e5e7eb;
 	position: relative;
 }
