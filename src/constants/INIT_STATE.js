@@ -5,5 +5,9 @@ export const INIT_STATE = {
 		inFetchingPosts: false,
 		inFetchingReadingPost: false,
 		inReadingPost: null,
+		fetchedPosts: null,
+		inFetchingUserinfo: false,
+		userInfo: false,
 	},
+	userInfo: {},
 };

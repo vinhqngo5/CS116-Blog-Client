@@ -2,6 +2,8 @@ import { Container, Paper } from "@mui/material";
 import React from "react";
 import Heading from "./Heading";
 import { BlogPost } from "./BlogPost";
+import { blogState$ } from "../../redux/selectors";
+import { useSelector } from "react-redux";
 
 export default function HomeMainColumn() {
 	return (
@@ -21,6 +23,7 @@ export default function HomeMainColumn() {
 }
 
 export function HomeContent() {
+	const { fetchedPosts } = useSelector(blogState$);
 	return (
 		<Paper
 			variant="outlined"
@@ -31,10 +34,11 @@ export function HomeContent() {
 				borderColor: "divider.main",
 			}}
 		>
-			<BlogPost />
-			<BlogPost />
-			<BlogPost />
-			<BlogPost />
+			{fetchedPosts == null
+				? "dang fetch"
+				: fetchedPosts.map((fetchedPost, index) => (
+						<BlogPost key={index} fetchedPost={fetchedPost} />
+				  ))}
 		</Paper>
 	);
 }

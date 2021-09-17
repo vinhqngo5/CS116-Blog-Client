@@ -11,7 +11,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(
+export const store = createStore(
 	reducers,
 	composeWithDevTools(applyMiddleware(sagaMiddleware))
 );

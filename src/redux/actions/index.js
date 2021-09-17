@@ -18,3 +18,16 @@ export const fetchPostMarkdown = createActions({
 	fetchPostMarkdownSuccess: (payload) => payload,
 	fetchPostMarkdownFailure: (err) => err,
 });
+
+export const fetchUserInfo = createActions({
+	fetchUserInfoRequest: undefined,
+	fetchUserInfoSuccess: (payload) => payload,
+	fetchUserInfoFailure: (err) => err,
+});
+
+export const createPost = createActions({
+	createPostRequest: undefined,
+	createPostSuccess: (payload) => payload,
+	createPostFailure: (err) => err,
+});
+

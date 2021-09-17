@@ -11,7 +11,7 @@ import {
 	BlogBodyPreviewText,
 } from "../common/BlogTypography";
 
-export function BlogPost() {
+export function BlogPost({ fetchedPost }) {
 	return (
 		<Box
 			sx={{
@@ -28,15 +28,15 @@ export function BlogPost() {
 					padding: "20px",
 				}}
 			>
-				<BlogHeader />
-				<BlogContent />
-				<BlogAction />
+				<BlogHeader fetchedPost={fetchedPost} />
+				<BlogContent fetchedPost={fetchedPost} />
+				<BlogAction fetchedPost={fetchedPost} />
 			</Grid>
 		</Box>
 	);
 }
 
-export function BlogHeader() {
+export function BlogHeader({ fetchedPost }) {
 	return (
 		<Grid item xs={12}>
 			<Box
@@ -58,15 +58,15 @@ export function BlogHeader() {
 					V
 				</Avatar>
 				<Box>
-					<BlogSubtitle>Vinh Quang Ngo</BlogSubtitle>
-					<BlogCaptionSmall>Sep 13, 2021</BlogCaptionSmall>
+					<BlogSubtitle>{fetchedPost.authorName}</BlogSubtitle>
+					<BlogCaptionSmall>{fetchedPost.publishedAt}</BlogCaptionSmall>
 				</Box>
 			</Box>
 		</Grid>
 	);
 }
 
-export function BlogContent() {
+export function BlogContent({ fetchedPost }) {
 	return (
 		<Grid
 			style={{
@@ -78,16 +78,15 @@ export function BlogContent() {
 		>
 			{" "}
 			<Grid item xs={12} sm={7}>
-				<BlogH6 gutterBottom>
-					The Hashnode Mobile App Has Finally Arrived 📱🚀
-				</BlogH6>
-				<BlogCaption gutterBottom>townhall.hashnode.com</BlogCaption>
 				<Dotdotdot clamp={4}>
+					<BlogH6 gutterBottom>{fetchedPost.postTitle}</BlogH6>
+				</Dotdotdot>
+				<Dotdotdot clamp={2}>
+					<BlogCaption gutterBottom>{fetchedPost.postSubtile}</BlogCaption>
+				</Dotdotdot>
+				<Dotdotdot clamp={3}>
 					<BlogBodyPreviewText gutterBottom>
-						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci
-						ratione in vel quos eligendi, cupiditate deserunt harum molestias
-						dolor sint veniam totam provident non assumenda! Nemo velit magni
-						quidem temporibus?
+						{fetchedPost.postPreview}
 					</BlogBodyPreviewText>
 				</Dotdotdot>
 			</Grid>
@@ -105,10 +104,11 @@ export function BlogContent() {
 				<img
 					style={{
 						height: "100%",
-						width: "100%",
+						width: "90%",
 						borderRadius: "4px",
+						float: "right",
 					}}
-					src="https://picsum.photos/600/300"
+					src={fetchedPost.postCover}
 					alt=""
 				/>
 			</Grid>
