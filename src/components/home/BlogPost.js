@@ -10,8 +10,13 @@ import {
 	BlogSubtitle,
 	BlogBodyPreviewText,
 } from "../common/BlogTypography";
+import { useHistory } from "react-router";
 
 export function BlogPost({ fetchedPost }) {
+	let history = useHistory();
+	const goToPost = () => {
+		history.push(`/${fetchedPost.authorSlug}/${fetchedPost.postSlug}`);
+	};
 	return (
 		<Box
 			sx={{
@@ -28,15 +33,15 @@ export function BlogPost({ fetchedPost }) {
 					padding: "20px",
 				}}
 			>
-				<BlogHeader fetchedPost={fetchedPost} />
-				<BlogContent fetchedPost={fetchedPost} />
+				<BlogHeader onClick={goToPost} fetchedPost={fetchedPost} />
+				<BlogContent onClick={goToPost} fetchedPost={fetchedPost} />
 				<BlogAction fetchedPost={fetchedPost} />
 			</Grid>
 		</Box>
 	);
 }
 
-export function BlogHeader({ fetchedPost }) {
+export function BlogHeader({ fetchedPost, onClick }) {
 	return (
 		<Grid item xs={12}>
 			<Box
@@ -46,6 +51,7 @@ export function BlogHeader({ fetchedPost }) {
 					cursor: "pointer",
 					marginBottom: "20px",
 				}}
+				onClick={onClick}
 			>
 				<Avatar
 					src="https://picsum.photos/35"
@@ -66,15 +72,17 @@ export function BlogHeader({ fetchedPost }) {
 	);
 }
 
-export function BlogContent({ fetchedPost }) {
+export function BlogContent({ fetchedPost, onClick }) {
 	return (
 		<Grid
 			style={{
 				marginBottom: "10px",
+				cursor: "pointer",
 			}}
 			item
 			xs={12}
 			container
+			onClick={onClick}
 		>
 			{" "}
 			<Grid item xs={12} sm={7}>
@@ -131,7 +139,7 @@ export function BlogContent({ fetchedPost }) {
 						borderRadius: "4px",
 						marginTop: "10px",
 					}}
-					src="https://picsum.photos/600/300"
+					src={fetchedPost.postCover}
 					alt=""
 				/>
 			</Grid>

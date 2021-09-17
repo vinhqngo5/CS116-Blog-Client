@@ -19,9 +19,9 @@ export const fetchPostMarkdown = (payload) => {
 };
 
 // tạm thời
-const findPostBySlug = (slug) => {
+const findPostBySlug = (postSlug) => {
 	for (var post of fetchedPosts) {
-		if (post.postSlug === slug) return post;
+		if (post.postSlug === postSlug) return axios.get(post.postMarkdown);
 	}
 	return null;
 };

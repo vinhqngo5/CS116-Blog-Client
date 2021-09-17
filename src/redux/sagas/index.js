@@ -4,12 +4,9 @@ import * as actions from "../actions";
 
 function* fetchPostsSaga(action) {
 	try {
-		yield delay(5000);
+		yield delay(1000);
 		const fetchedPost = yield call(api.fetchPosts);
-		console.log(
-			"🚀 ~ file: index.js ~ line 8 ~ function*fetchPostsSaga ~ fetchedPost",
-			fetchedPost
-		);
+
 		yield put(actions.fetchPosts.fetchPostsSuccess(fetchedPost));
 	} catch (err) {
 		yield put(actions.fetchPosts.fetchPostsFailure(err));

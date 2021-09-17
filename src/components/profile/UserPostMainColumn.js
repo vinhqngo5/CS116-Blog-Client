@@ -1,8 +1,8 @@
 import { Container, Link, Paper } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { blogState$ } from "../../redux/selectors";
 import {
 	BlogH7,
@@ -16,6 +16,8 @@ import {
 } from "../common/BlogTypography";
 import Heading from "../home/Heading";
 import "../../assets/css/app.css";
+import { useParams } from "react-router";
+import { fetchPostMarkdown } from "../../redux/actions";
 const renderers = {
 	h1: BlogH5,
 	h2: BlogH6,
@@ -30,11 +32,18 @@ const renderers = {
 };
 
 export default function ProfileMainColumn() {
+	const { authorSlug, postSlug } = useParams();
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch(
+			fetchPostMarkdown.fetchPostMarkdownRequest({
+				postSlug,
+			})
+		);
+	}, []);
 	const { inFetchingPosts, inReadingPost } = useSelector(blogState$);
-	console.log(
-		"🚀 ~ file: UserPostMainColumn.js ~ line 15 ~ ProfileMainColumn ~ inReadingPost",
-		[inReadingPost]
-	);
+
 	return (
 		<Container
 			style={{

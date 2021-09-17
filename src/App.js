@@ -45,7 +45,7 @@ export function App() {
 					<Route exact path="/posts">
 						<Posts />
 					</Route>
-					<Route path="/:path/:abc">
+					<Route path="/:authorSlug/:postSlug">
 						<UserPost />
 					</Route>
 					<Route path="/:path">

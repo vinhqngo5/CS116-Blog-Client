@@ -13,8 +13,14 @@ import PhotoCamera from "@mui/icons-material/PhotoCamera";
 import { HighlightOffOutlined } from "@mui/icons-material";
 import { ScheduleSendOutlined } from "@mui/icons-material";
 import { useTheme } from "@emotion/react";
-
+import { createPost } from "../../redux/actions/index";
+import { useDispatch } from "react-redux";
 export default function MarkdownColumn() {
+	const dispatch = useDispatch();
+	// const [posts]
+	// const createPost = () => {
+	// 	dispatch(createPost.createPostRequest());
+	// };
 	return (
 		<Box>
 			<Box
@@ -75,6 +81,7 @@ export default function MarkdownColumn() {
 				}}
 				variant="contained"
 				startIcon={<ScheduleSendOutlined />}
+				onclick={createPost}
 				fullWidth
 			>
 				Publish

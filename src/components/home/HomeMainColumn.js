@@ -1,9 +1,10 @@
-import { Container, Paper } from "@mui/material";
+import { CircularProgress, Container, Paper } from "@mui/material";
 import React from "react";
 import Heading from "./Heading";
 import { BlogPost } from "./BlogPost";
 import { blogState$ } from "../../redux/selectors";
 import { useSelector } from "react-redux";
+import { Box } from "@mui/system";
 
 export default function HomeMainColumn() {
 	return (
@@ -34,11 +35,22 @@ export function HomeContent() {
 				borderColor: "divider.main",
 			}}
 		>
-			{fetchedPosts == null
-				? "dang fetch"
-				: fetchedPosts.map((fetchedPost, index) => (
-						<BlogPost key={index} fetchedPost={fetchedPost} />
-				  ))}
+			{fetchedPosts == null ? (
+				<Box
+					sx={{
+						display: "flex",
+						align: "center",
+						justifyContent: "center",
+						minHeight: "100%",
+					}}
+				>
+					<CircularProgress sx={{ fontsize: "25px" }} />
+				</Box>
+			) : (
+				fetchedPosts.map((fetchedPost, index) => (
+					<BlogPost key={index} fetchedPost={fetchedPost} />
+				))
+			)}
 		</Paper>
 	);
 }
