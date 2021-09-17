@@ -8,7 +8,7 @@ import {
 	BlogCaption,
 	BlogCaptionSmall,
 	BlogSubtitle,
-	BlogBodyText,
+	BlogBodyPreviewText,
 } from "../common/BlogTypography";
 
 export function BlogPost() {
@@ -83,12 +83,12 @@ export function BlogContent() {
 				</BlogH6>
 				<BlogCaption gutterBottom>townhall.hashnode.com</BlogCaption>
 				<Dotdotdot clamp={4}>
-					<BlogBodyText gutterBottom>
+					<BlogBodyPreviewText gutterBottom>
 						Lorem ipsum dolor sit, amet consectetur adipisicing elit. Adipisci
 						ratione in vel quos eligendi, cupiditate deserunt harum molestias
 						dolor sint veniam totam provident non assumenda! Nemo velit magni
 						quidem temporibus?
-					</BlogBodyText>
+					</BlogBodyPreviewText>
 				</Dotdotdot>
 			</Grid>
 			<Grid

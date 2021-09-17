@@ -10,6 +10,7 @@ import { useSelector } from "react-redux";
 import { themeModeState$ } from "./redux/selectors";
 import { makeStyles } from "@mui/styles";
 import Profile from "./pages/profile/Profile";
+import UserPost from "./pages/profile/UserPost";
 import NotFound from "./pages/notfound/NotFound";
 
 const useStyles = makeStyles((theme) => {
@@ -17,6 +18,10 @@ const useStyles = makeStyles((theme) => {
 		app: {
 			backgroundColor: theme.palette.background.default,
 			minHeight: "100vh",
+			"::webkitScrollbar": {
+				width: 0 /* Remove scrollbar space */,
+				background: "transparent" /* Optional: just make scrollbar invisible */,
+			},
 		},
 	};
 });
@@ -39,6 +44,9 @@ export function App() {
 					</Route>
 					<Route exact path="/posts">
 						<Posts />
+					</Route>
+					<Route path="/:path/:abc">
+						<UserPost />
 					</Route>
 					<Route path="/:path">
 						<NotFound />

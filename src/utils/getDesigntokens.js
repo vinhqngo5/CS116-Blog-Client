@@ -1,4 +1,4 @@
-const getDesignTokens = (mode) => ({
+	const getDesignTokens = (mode) => ({
 	palette: {
 		mode,
 		primary: {

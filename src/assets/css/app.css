@@ -3,7 +3,7 @@ html {
 	overflow-x: hidden;
 	font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
-html::-webkit-scrollbar {
+::-webkit-scrollbar {
 	width: 0; /* Remove scrollbar space */
 	background: transparent; /* Optional: just make scrollbar invisible */
 }

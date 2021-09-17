@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Link, Paper, Typography } from "@mui/material";
 
 /**
  * import {
@@ -74,11 +74,36 @@ import { Typography } from "@mui/material";
 * Example: content of blog            
  */
 
-export function BlogH6({ sx, ...props }) {
+export function BlogH7({ sx, ...props }) {
 	return (
 		<Typography
 			variant="h6"
 			component="div"
+			sx={{
+				color: "text.primary",
+				fontSize: "20px",
+				fontWeight: "700",
+				...sx,
+			}}
+			{...props}
+		>
+			{props.children}
+		</Typography>
+	);
+}
+export function BlogH6({ sx, ...props }) {
+	var href = props.children[0];
+	href = href.replace(/\s+/g, "-").toLowerCase();
+	console.log("🚀 ~ file: BlogTypography.js ~ line 97 ~ BlogH6 ~ href", href);
+	href = href.replace(/,/g, "");
+	href = href.replace(/:/g, "");
+	console.log("🚀 ~ file: BlogTypography.js ~ line 99 ~ BlogH6 ~ href", href);
+
+	return (
+		<Typography
+			variant="h6"
+			component="div"
+			id={href}
 			sx={{
 				color: "text.primary",
 				fontSize: "25px",
@@ -110,11 +135,29 @@ export function BlogH5({ sx, ...props }) {
 	);
 }
 
+export function BlogH4({ sx, ...props }) {
+	return (
+		<Typography
+			variant="h5"
+			component="div"
+			sx={{
+				color: "text.primary",
+				fontSize: "35px",
+				fontWeight: "800",
+				...sx,
+			}}
+			{...props}
+		>
+			{props.children}
+		</Typography>
+	);
+}
+
 export function BlogCaption({ sx, ...props }) {
 	return (
 		<Typography
 			variant="caption"
-			component="div"
+			component="p"
 			sx={{
 				color: "text.secondary",
 				fontSize: "14px",
@@ -131,7 +174,7 @@ export function BlogCaptionSmall({ sx, ...props }) {
 	return (
 		<Typography
 			variant="caption"
-			component="div"
+			component="p"
 			sx={{
 				color: "text.secondary",
 				fontSize: "12px",
@@ -146,7 +189,21 @@ export function BlogCaptionSmall({ sx, ...props }) {
 
 export function BlogSubtitle({ sx, ...props }) {
 	return (
-		<Typography component="div" variant="subtitle2" {...props} sx={{ ...sx }}>
+		<Typography component="p" variant="subtitle2" {...props} sx={{ ...sx }}>
+			{props.children}
+		</Typography>
+	);
+}
+
+export function BlogBodyPreviewText({ sx, ...props }) {
+	return (
+		<Typography
+			variant="body2"
+			color="textSecondary"
+			component="p"
+			sx={{ ...sx }}
+			{...props}
+		>
 			{props.children}
 		</Typography>
 	);
@@ -156,12 +213,78 @@ export function BlogBodyText({ sx, ...props }) {
 	return (
 		<Typography
 			variant="body2"
-			color="textSecondary"
-			component="div"
-			sx={{ ...sx }}
+			component="p"
+			sx={{ ...sx, fontSize: "14px" }}
 			{...props}
 		>
 			{props.children}
 		</Typography>
+	);
+}
+
+export function BlogBodyListIem({ sx, ...props }) {
+	return (
+		<Typography
+			variant="body2"
+			component="li"
+			sx={{ ...sx, fontSize: "14px" }}
+			{...props}
+		>
+			{props.children}
+		</Typography>
+	);
+}
+export function BlogBodyBlockQuote({ sx, ...props }) {
+	return (
+		<Typography
+			variant="body2"
+			component="blockquote"
+			sx={{ ...sx, fontSize: "14px" }}
+			{...props}
+		>
+			{props.children}
+		</Typography>
+	);
+}
+export function BlogBodyCode({ sx, ...props }) {
+	return (
+		<Typography
+			variant="body2"
+			component="code"
+			sx={{ ...sx, fontSize: "14px" }}
+			{...props}
+		>
+			{props.children}
+		</Typography>
+	);
+}
+
+export function BlogBodyLink({ sx, ...props }) {
+	return (
+		<Link
+			underline="none"
+			sx={{ ...sx, fontSize: "14px", color: "#4078c0" }}
+			{...props}
+		>
+			{props.children}
+		</Link>
+	);
+}
+
+export function BlogBodyPaper({ sx, ...props }) {
+	return (
+		<Paper
+			component="pre"
+			elevation={0}
+			sx={{
+				...sx,
+				fontSize: "14px",
+				backgroundColor: "#1f2937",
+				color: "#fafafa",
+				padding: "10px",
+			}}
+		>
+			{props.children}
+		</Paper>
 	);
 }
