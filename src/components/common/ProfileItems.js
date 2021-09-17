@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IconButton, Popover, Typography, useMediaQuery } from "@mui/material";
 import { Avatar, Badge } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,10 +15,6 @@ import { useTheme } from "@emotion/react";
 
 export default function ProfileItems({ component, anchorOrigin, ...props }) {
 	function switchTheme(element, mode) {
-		console.log(
-			"🚀 ~ file: ProfileItems.js ~ line 18 ~ switchTheme ~ element",
-			element
-		);
 		if (element) element.setAttribute("data-theme", mode);
 	}
 
@@ -28,14 +24,16 @@ export default function ProfileItems({ component, anchorOrigin, ...props }) {
 	const dispatch = useDispatch();
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.up("md"));
-	const switchThemeMode = () => {
+	useEffect(() => {
 		const switchThemeWrapper = document.querySelector(".theme-switch-wrapper");
+		switchTheme(switchThemeWrapper, mode);
+	}, [mode]);
+
+	const switchThemeMode = () => {
 		if (mode === "light") {
 			dispatch(actions.switchDarkMode());
-			switchTheme(switchThemeWrapper, "dark");
 		} else {
 			dispatch(actions.switchLightMode());
-			switchTheme(switchThemeWrapper, "light");
 		}
 	};
 	return (
