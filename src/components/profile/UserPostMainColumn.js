@@ -14,6 +14,7 @@ import {
 	BlogBodyLink,
 	BlogBodyPaper,
 } from "../common/BlogTypography";
+import CodeBlock from "../common/CodeBlock";
 import Heading from "../home/Heading";
 import "../../assets/css/app.css";
 import { useParams } from "react-router";
@@ -25,7 +26,7 @@ const renderers = {
 	div: BlogBodyText,
 	p: BlogBodyText,
 	li: BlogBodyListIem,
-	code: BlogBodyCode,
+	code: CodeBlock,
 	detail: BlogBodyCode,
 	a: BlogBodyLink,
 	pre: BlogBodyPaper,

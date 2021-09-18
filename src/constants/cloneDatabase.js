@@ -17,6 +17,22 @@ export const fetchedPosts = [
 			"https://raw.githubusercontent.com/LaurenceHo/react-weather-app/master/README.md",
 	},
 	{
+		postID: 3,
+		authorId: 1,
+		authorName: "Vinh Quang Ngo",
+		postSlug: "simplemde-markdown",
+		publishedAt: "Sep 14, 2021",
+		authorSlug: "vinhqngo5",
+		postCover:
+			"https://camo.githubusercontent.com/ab154649c0293f2a472251f85d973f6f12fd8007446cfe3b4d4571c7e2642184/687474703a2f2f692e696d6775722e636f6d2f7a7157664a774f2e706e67",
+		postTitle: "SimpleMDE - Markdown Editor",
+		postSubtile: "https://github.com/sparksuite/simplemde-markdown-editor",
+		postPreview:
+			"A drop-in JavaScript textarea replacement for writing beautiful and understandable Markdown. The WYSIWYG-esque editor allows users who may be less experienced with Markdown to use familiar toolbar buttons and shortcuts. In addition, the syntax is rendered while editing to clearly show the expected result. Headings are larger, emphasized words are italicized, links are underlined, etc. SimpleMDE is one of the first editors to feature both built-in autosaving and spell checking.",
+		postMarkdown:
+			"https://raw.githubusercontent.com/sparksuite/simplemde-markdown-editor/master/README.md",
+	},
+	{
 		postID: 2,
 		authorId: 1,
 		authorName: "Vinh Quang Ngo",

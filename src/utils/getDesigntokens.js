@@ -1,4 +1,4 @@
-	const getDesignTokens = (mode) => ({
+const getDesignTokens = (mode) => ({
 	palette: {
 		mode,
 		primary: {
@@ -37,8 +37,14 @@
 						paper: "#ffffff",
 						default: "#f5f7fa",
 						alpha: "#c3c3c3",
+						beta: "#f6f8fa",
 				  }
-				: { paper: "#232626", default: "#18191a", alpha: "rgb(125 122 122)" }),
+				: {
+						paper: "#232626",
+						default: "#18191a",
+						alpha: "rgb(125 122 122)",
+						beta: "#1f2937",
+				  }),
 		},
 		divider: {
 			...(mode === "light"

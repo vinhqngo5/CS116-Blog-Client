@@ -277,7 +277,7 @@ export function BlogBodyPaper({ sx, ...props }) {
 			sx={{
 				...sx,
 				fontSize: "14px",
-				backgroundColor: "#1f2937",
+				backgroundColor: "background.beta",
 				color: "#fafafa",
 				padding: "10px",
 			}}
