@@ -6,7 +6,7 @@ import {
 	useMediaQuery,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MarkdownEditor from "./MarkdownEditor";
 import ImageUploading from "react-images-uploading";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
@@ -14,13 +14,40 @@ import { HighlightOffOutlined } from "@mui/icons-material";
 import { ScheduleSendOutlined } from "@mui/icons-material";
 import { useTheme } from "@emotion/react";
 import { createPost } from "../../redux/actions/index";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { blogState$ } from "../../redux/selectors";
+import { useHistory } from "react-router";
 export default function MarkdownColumn() {
 	const dispatch = useDispatch();
-	// const [posts]
-	// const createPost = () => {
-	// 	dispatch(createPost.createPostRequest());
-	// };
+	const history = useHistory();
+	const clonePost = useSelector(blogState$).inCreatingPost;
+	const [inCreatingPost, setInCreatingPost] = useState({
+		...clonePost,
+	});
+
+	const handleTitleChange = (e) => {
+		setInCreatingPost({ ...inCreatingPost, postTitle: e.target.value });
+	};
+	const handleSubtitleChange = (e) => {
+		setInCreatingPost({ ...inCreatingPost, postSubtitle: e.target.value });
+	};
+	const handleImageChange = (uploadedImage) => {
+		setInCreatingPost({ ...inCreatingPost, postCover: uploadedImage });
+	};
+	const handleMarkdownContentChange = (markdownContent) => {
+		setInCreatingPost({ ...inCreatingPost, postMarkdownReal: markdownContent });
+	};
+	const handleCreatePost = () => {
+		dispatch(createPost.createPostRequest(inCreatingPost));
+		setInCreatingPost({ ...clonePost });
+		history.push("/");
+	};
+	useEffect(() => {
+		console.log(
+			"🚀 ~ file: MarkdownColumn.js ~ line 34 ~ MarkdownColumn ~ inCreatingPost",
+			inCreatingPost
+		);
+	}, [inCreatingPost]);
 	return (
 		<Box>
 			<Box
@@ -42,6 +69,7 @@ export default function MarkdownColumn() {
 							}}
 						>
 							<TextField
+								onChange={handleTitleChange}
 								multiline
 								sx={{
 									width: "70%",
@@ -56,6 +84,7 @@ export default function MarkdownColumn() {
 								size="large"
 							/>
 							<TextField
+								onChange={handleSubtitleChange}
 								multiline
 								sx={{
 									width: "100%",
@@ -69,11 +98,13 @@ export default function MarkdownColumn() {
 						</Box>
 					</Grid>
 					<Grid item xs={12} sm={6}>
-						<ImageUploader />
+						<ImageUploader handleImageChange={handleImageChange} />
 					</Grid>
 				</Grid>
 			</Box>
-			<MarkdownEditor />
+			<MarkdownEditor
+				handleMarkdownContentChange={handleMarkdownContentChange}
+			/>
 			<Button
 				sx={{
 					height: "40px",
@@ -81,7 +112,7 @@ export default function MarkdownColumn() {
 				}}
 				variant="contained"
 				startIcon={<ScheduleSendOutlined />}
-				onclick={createPost}
+				onClick={handleCreatePost}
 				fullWidth
 			>
 				Publish
@@ -90,7 +121,7 @@ export default function MarkdownColumn() {
 	);
 }
 
-function ImageUploader() {
+function ImageUploader({ handleImageChange }) {
 	const theme = useTheme();
 	const matches = useMediaQuery(theme.breakpoints.up("sm"));
 	const [images, setImages] = React.useState([]);
@@ -98,6 +129,7 @@ function ImageUploader() {
 		// data for submit
 		console.log(imageList, addUpdateIndex);
 		setImages(imageList);
+		if (imageList.length) handleImageChange(imageList[0].data_url);
 	};
 
 	return (

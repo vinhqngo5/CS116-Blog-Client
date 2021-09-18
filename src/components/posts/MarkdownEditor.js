@@ -36,9 +36,17 @@ const converter = new Showdown.Converter({
 	tasklists: true,
 });
 
-export default function MarkdownEditor() {
+export default function MarkdownEditor({ handleMarkdownContentChange }) {
 	const [value, setValue] = React.useState("**Hello world!!!**");
 	const [selectedTab, setSelectedTab] = React.useState("write");
+
+	React.useEffect(() => {
+		handleMarkdownContentChange(value);
+		console.log(
+			"🚀 ~ file: MarkdownEditor.js ~ line 50 ~ React.useEffect ~ value",
+			value
+		);
+	}, [value]);
 
 	const save = async function* (data) {
 		// Promise that waits for "time" milliseconds

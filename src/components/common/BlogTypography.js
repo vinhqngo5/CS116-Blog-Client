@@ -92,7 +92,7 @@ export function BlogH7({ sx, ...props }) {
 	);
 }
 export function BlogH6({ sx, ...props }) {
-	var href = props.children[0];
+	var href = props?.children?.[0] || "";
 	href = href.replace(/\s+/g, "-").toLowerCase();
 	href = href.replace(/,/g, "");
 	href = href.replace(/:/g, "");

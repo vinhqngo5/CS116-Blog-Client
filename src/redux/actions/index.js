@@ -26,8 +26,7 @@ export const fetchUserInfo = createActions({
 });
 
 export const createPost = createActions({
-	createPostRequest: undefined,
+	createPostRequest: (payload) => payload,
 	createPostSuccess: (payload) => payload,
 	createPostFailure: (err) => err,
 });
-

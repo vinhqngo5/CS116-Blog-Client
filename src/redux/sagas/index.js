@@ -12,14 +12,30 @@ function* fetchPostsSaga(action) {
 		yield put(actions.fetchPosts.fetchPostsFailure(err));
 	}
 }
+function* createPostSaga(action) {
+	try {
+		// create api ~ post
+		yield put(actions.createPost.createPostSuccess(action.payload));
+	} catch (err) {
+		yield put(actions.createPost.createPostFailure(err));
+	}
+}
 
 function* fetchPostMarkdownSaga(action) {
 	try {
 		const fetchPostMarkdown = yield call(api.fetchPostMarkdown, action.payload);
 
-		yield put(
-			actions.fetchPostMarkdown.fetchPostMarkdownSuccess(fetchPostMarkdown.data)
-		);
+		if (fetchPostMarkdown?.data) {
+			yield put(
+				actions.fetchPostMarkdown.fetchPostMarkdownSuccess(
+					fetchPostMarkdown.data
+				)
+			);
+		} else {
+			yield put(
+				actions.fetchPostMarkdown.fetchPostMarkdownSuccess(fetchPostMarkdown)
+			);
+		}
 	} catch (err) {
 		yield put(actions.fetchPostMarkdown.fetchPostMarkdownFailure(err));
 	}
@@ -45,6 +61,7 @@ function* mySaga() {
 		actions.fetchPostMarkdown.fetchPostMarkdownRequest,
 		fetchPostMarkdownSaga
 	);
+	yield takeLatest(actions.createPost.createPostRequest, createPostSaga);
 	// yield takeLatest(actions.switchDarkMode, fetchPostMarkdownSaga);
 }
 export default mySaga;

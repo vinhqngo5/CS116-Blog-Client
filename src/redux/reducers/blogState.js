@@ -5,6 +5,7 @@ import {
 	switchLightMode,
 	fetchPostMarkdown,
 	fetchPosts,
+	createPost,
 } from "../actions";
 
 export default function modalReducer(state = INIT_STATE.blogState, action) {
@@ -44,13 +45,30 @@ export default function modalReducer(state = INIT_STATE.blogState, action) {
 			return {
 				...state,
 				inFetchingPosts: false,
-				fetchedPosts: action.payload,
+				// fetchedPosts: action.payload,
+				fetchedPosts: state.fetchedPosts ? state.fetchedPosts : action.payload,
 			};
 		case getType(fetchPosts.fetchPostsFailure):
 			return {
 				...state,
 				inFetchingPosts: false,
 			};
+		// case getType(createPost.createPostRequest):
+		// 	return {
+		// 		...state,
+		// 	};
+		case getType(createPost.createPostSuccess):
+			return {
+				...state,
+				inFetchingPosts: false,
+				fetchedPosts: state.fetchedPosts
+					? [action.payload, ...state.fetchedPosts]
+					: [action.payload],
+			};
+		// case getType(createPost.createPostFailure):
+		// 	return {
+		// 		...state,
+		// 	};
 		default:
 			return state;
 	}
