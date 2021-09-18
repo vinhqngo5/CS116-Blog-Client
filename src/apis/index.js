@@ -28,3 +28,26 @@ const findPostBySlug = (postSlug) => {
 	}
 	return null;
 };
+
+export const findPostInfoBySlug = (postSlug) => {
+	console.log(
+		"🚀 ~ file: index.js ~ line 33 ~ findPostInfoBySlug ~ postSlug",
+		postSlug
+	);
+	const posts = store.getState().blogState.fetchedPosts || fetchedPosts;
+	console.log(
+		"🚀 ~ file: index.js ~ line 34 ~ findPostInfoBySlug ~ posts",
+		posts
+	);
+	for (var post of posts) {
+		if (post.postSlug === postSlug && !post.postMarkdownReal) {
+			console.log("go to this 1 ");
+			return post;
+		} else if (post.postSlug === postSlug) {
+			console.log("go to this 2 ");
+			return post;
+		}
+	}
+	console.log("go to this 3 ");
+	return {};
+};

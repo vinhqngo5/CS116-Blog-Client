@@ -90,11 +90,13 @@ export function BlogContent({ fetchedPost, onClick }) {
 					<BlogH6 gutterBottom>{fetchedPost.postTitle}</BlogH6>
 				</Dotdotdot>
 				<Dotdotdot clamp={2}>
-					<BlogCaption gutterBottom>{fetchedPost.postSubtile}</BlogCaption>
+					<BlogCaption gutterBottom>
+						@{fetchedPost.authorSlug}/{fetchedPost.postSlug}
+					</BlogCaption>
 				</Dotdotdot>
 				<Dotdotdot clamp={3}>
 					<BlogBodyPreviewText gutterBottom>
-						{fetchedPost.postPreview}
+						{fetchedPost.postSubtitle}
 					</BlogBodyPreviewText>
 				</Dotdotdot>
 			</Grid>
@@ -124,7 +126,7 @@ export function BlogContent({ fetchedPost, onClick }) {
 				item
 				xs={12}
 				style={{
-					height: "300px",
+					minHeight: "200px",
 					marginBottom: "10px",
 				}}
 				display={{

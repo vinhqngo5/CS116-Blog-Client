@@ -3,7 +3,7 @@ export const INIT_STATE = {
 		themeMode: "light",
 		inReadingPost: 1,
 		inFetchingPosts: false,
-		inFetchingReadingPost: false,
+		inFetchingReadingPost: true,
 		inReadingPost: null,
 		fetchedPosts: null,
 		inFetchingUserinfo: false,

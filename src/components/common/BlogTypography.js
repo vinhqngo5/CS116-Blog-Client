@@ -212,7 +212,7 @@ export function BlogBodyText({ sx, ...props }) {
 		<Typography
 			variant="body2"
 			component="p"
-			sx={{ ...sx, fontSize: "14px" }}
+			sx={{ fontSize: "14px", ...sx }}
 			{...props}
 		>
 			{props.children}

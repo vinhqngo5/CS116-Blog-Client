@@ -24,19 +24,32 @@ function* createPostSaga(action) {
 function* fetchPostMarkdownSaga(action) {
 	try {
 		const fetchPostMarkdown = yield call(api.fetchPostMarkdown, action.payload);
-
+		let test = {};
 		if (fetchPostMarkdown?.data) {
-			yield put(
-				actions.fetchPostMarkdown.fetchPostMarkdownSuccess(
-					fetchPostMarkdown.data
-				)
-			);
+			test = {
+				...api.findPostInfoBySlug(action.payload.postSlug),
+				postMarkdownReal: fetchPostMarkdown.data,
+			};
+			// yield put(
+			// 	actions.fetchPostMarkdown.fetchPostMarkdownSuccess(
+			// 		fetchPostMarkdown.data
+			// 	)
+			// );
 		} else {
-			yield put(
-				actions.fetchPostMarkdown.fetchPostMarkdownSuccess(fetchPostMarkdown)
-			);
+			test = {
+				...api.findPostInfoBySlug(action.payload.postSlug),
+				postMarkdownReal: fetchPostMarkdown,
+			};
+			// yield put(
+			// 	actions.fetchPostMarkdown.fetchPostMarkdownSuccess(fetchPostMarkdown)
+			// );
 		}
+		yield put(actions.fetchPostMarkdown.fetchPostMarkdownSuccess(test));
 	} catch (err) {
+		console.log(
+			"🚀 ~ file: index.js ~ line 52 ~ function*fetchPostMarkdownSaga ~ err",
+			err
+		);
 		yield put(actions.fetchPostMarkdown.fetchPostMarkdownFailure(err));
 	}
 }

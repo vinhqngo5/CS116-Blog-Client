@@ -1,4 +1,4 @@
-import { Container, Link, Paper } from "@mui/material";
+import { Container, Link, Paper, Divider, Avatar } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect } from "react";
 import ReactMarkdown from "react-markdown";
@@ -13,6 +13,10 @@ import {
 	BlogBodyCode,
 	BlogBodyLink,
 	BlogBodyPaper,
+	BlogSubtitle,
+	BlogCaptionSmall,
+	BlogCaption,
+	BlogBodyPreviewText,
 } from "../common/BlogTypography";
 import CodeBlock from "../common/CodeBlock";
 import Heading from "../home/Heading";
@@ -43,7 +47,7 @@ export default function ProfileMainColumn() {
 			})
 		);
 	}, []);
-	const { inFetchingPosts, inReadingPost } = useSelector(blogState$);
+	const { inFetchingReadingPost, inReadingPost } = useSelector(blogState$);
 
 	return (
 		<Container
@@ -59,23 +63,114 @@ export default function ProfileMainColumn() {
 			}}
 		>
 			<Heading />
-			<Paper
-				variant="outlined"
-				elevation={0}
-				sx={{
-					borderWidth: "1px",
-					borderStyle: "solid",
-					borderColor: "divider.main",
-				}}
-			>
-				<Box sx={{ padding: "20px" }}>
-					{inFetchingPosts ? (
-						"in fetch"
-					) : (
-						<ReactMarkdown children={inReadingPost} components={renderers} />
-					)}
-				</Box>
-			</Paper>
+			{inFetchingReadingPost ? (
+				<div></div>
+			) : (
+				<>
+					<Header inReadingPost={inReadingPost} />
+					<Paper
+						variant="outlined"
+						elevation={0}
+						sx={{
+							borderWidth: "1px",
+							borderStyle: "solid",
+							borderColor: "divider.main",
+						}}
+					>
+						<Box sx={{ padding: "20px" }}>
+							<ReactMarkdown
+								children={inReadingPost.postMarkdownReal}
+								components={renderers}
+							/>
+						</Box>
+					</Paper>
+				</>
+			)}
 		</Container>
 	);
 }
+
+const Header = ({ inReadingPost }) => {
+	return (
+		<Paper
+			variant="outlined"
+			elevation={0}
+			sx={{
+				display: "flex",
+				justifyContent: "space-between",
+				alignItems: "center",
+				padding: "10px 20px",
+				margin: "10px 0px",
+				borderWidth: "1px",
+				borderStyle: "solid",
+				borderColor: "divider.main",
+				minHeight: "20px",
+			}}
+		>
+			<Box>
+				<Box
+					sx={{
+						maxWidth: "100%",
+						margin: "20px auto",
+					}}
+				>
+					<img
+						style={{
+							height: "100%",
+							width: "100%",
+							borderRadius: "4px",
+						}}
+						src={inReadingPost.postCover}
+						alt=""
+					/>
+				</Box>
+				<BlogH5 sx={{ paddingBottom: "25px" }}>
+					{inReadingPost.postTitle}
+				</BlogH5>
+
+				{/* <Divider sx={{ color: "background.alpha" }} /> */}
+
+				<BlogBodyText
+					sx={{
+						margin: "0px 0px 25px",
+						fontSize: "18px",
+						lineHeight: "28px",
+					}}
+					gutterBottom
+				>
+					{inReadingPost.postSubtitle}
+				</BlogBodyText>
+				<Box
+					sx={{
+						display: "flex",
+						alignItems: "center",
+						cursor: "pointer",
+						margin: "0px 10px 20px",
+					}}
+					// onClick={onClick}
+				>
+					<Avatar
+						src="https://picsum.photos/60"
+						sx={{
+							width: "60px",
+							height: "60px",
+							marginRight: "20px",
+						}}
+					>
+						V
+					</Avatar>
+					<Box>
+						<BlogSubtitle gutterBottom>{inReadingPost.authorName}</BlogSubtitle>
+						<BlogCaption gutterBottom>
+							@{inReadingPost.authorSlug}/{inReadingPost.postSlug}
+						</BlogCaption>
+						<BlogCaptionSmall>{inReadingPost.publishedAt}</BlogCaptionSmall>
+						{/* <BlogCaption sx={{ fontSize: "14px" }} gutterBottom>
+							{inReadingPost.postSubtitle}
+						</BlogCaption> */}
+					</Box>
+				</Box>
+			</Box>
+		</Paper>
+	);
+};
